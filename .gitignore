@@ -1,0 +1,21 @@
+# Test data
+/testfiles/*.out
+
+# Build artifacts
+/*.jar
+
+# Gradle
+/build/
+/.gradle/
+
+# Vim
+*.swp
+
+# IntelliJ
+/.idea/
+/*.iml
+
+# Eclipse
+/.settings/
+/.project
+/.classpath

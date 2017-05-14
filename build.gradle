@@ -1,0 +1,94 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'jacoco'
+
+project.version = '1.0.0'
+project.group = 'se.llbit'
+project.archivesBaseName = 'jo-nbt'
+
+// Source level is JDK 7 because we use AutoCloseable.
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testCompile 'junit:junit:4.11'
+}
+
+test.inputs.dir file('testfiles')
+
+jacocoTestReport {
+  reports {
+    xml.enabled = true
+    html.enabled = true
+  }
+}
+
+check.dependsOn jacocoTestReport
+
+task javadocJar(type: Jar) {
+  classifier = 'javadoc'
+  from javadoc
+}
+
+task sourcesJar(type: Jar) {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+
+artifacts {
+  archives javadocJar, sourcesJar
+}
+
+signing {
+  // Skip signing when credentials are not available:
+  required { project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword') }
+  sign configurations.archives
+}
+
+uploadArchives {
+  repositories.mavenDeployer {
+    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
+      if (project.hasProperty('ossrhUsername')) {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+    }
+
+    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
+      if (project.hasProperty('ossrhUsername')) {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+    }
+
+    pom.project {
+      name 'jo-nbt'
+      packaging 'jar'
+      description 'Small NBT library.'
+      url 'https://github.com/llbit/jo-nbt'
+      licenses {
+        license {
+          name 'Modified BSD License'
+          url 'http://opensource.org/licenses/BSD-3-Clause'
+          distribution 'repo'
+        }
+      }
+      developers {
+        developer {
+          name 'Jesper Öqvist'
+          email 'jesper@llbit.se'
+        }
+      }
+      scm {
+        connection 'scm:git:https://github.com/llbit/jo-nbt.git'
+        url 'https://github.com/llbit/jo-nbt'
+      }
+    }
+  }
+}
+

@@ -1,0 +1,122 @@
+TAG:named
+  TAG_String: ""
+  TAG_Compound
+    TAG:named
+      TAG_String: "Level"
+      TAG_Compound
+        TAG:named
+          TAG_String: "LightPopulated"
+          TAG_Byte: 1
+        TAG:named
+          TAG_String: "zPos"
+          TAG_Int: 4
+        TAG:named
+          TAG_String: "HeightMap"
+          TAG_Int_Array: 256
+        TAG:named
+          TAG_String: "Sections"
+          TAG_List
+            TAG_Compound
+              TAG:named
+                TAG_String: "Blocks"
+                TAG_Byte_Array: 4096
+              TAG:named
+                TAG_String: "SkyLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Y"
+                TAG_Byte: 0
+              TAG:named
+                TAG_String: "BlockLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Data"
+                TAG_Byte_Array: 2048
+            TAG_Compound
+              TAG:named
+                TAG_String: "Blocks"
+                TAG_Byte_Array: 4096
+              TAG:named
+                TAG_String: "SkyLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Y"
+                TAG_Byte: 1
+              TAG:named
+                TAG_String: "BlockLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Data"
+                TAG_Byte_Array: 2048
+            TAG_Compound
+              TAG:named
+                TAG_String: "Blocks"
+                TAG_Byte_Array: 4096
+              TAG:named
+                TAG_String: "SkyLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Y"
+                TAG_Byte: 2
+              TAG:named
+                TAG_String: "BlockLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Data"
+                TAG_Byte_Array: 2048
+            TAG_Compound
+              TAG:named
+                TAG_String: "Blocks"
+                TAG_Byte_Array: 4096
+              TAG:named
+                TAG_String: "SkyLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Y"
+                TAG_Byte: 3
+              TAG:named
+                TAG_String: "BlockLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Data"
+                TAG_Byte_Array: 2048
+            TAG_Compound
+              TAG:named
+                TAG_String: "Blocks"
+                TAG_Byte_Array: 4096
+              TAG:named
+                TAG_String: "SkyLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Y"
+                TAG_Byte: 4
+              TAG:named
+                TAG_String: "BlockLight"
+                TAG_Byte_Array: 2048
+              TAG:named
+                TAG_String: "Data"
+                TAG_Byte_Array: 2048
+        TAG:named
+          TAG_String: "LastUpdate"
+          TAG_Long: 138
+        TAG:named
+          TAG_String: "Biomes"
+          TAG_Byte_Array: 256
+        TAG:named
+          TAG_String: "InhabitedTime"
+          TAG_Long: 0
+        TAG:named
+          TAG_String: "xPos"
+          TAG_Int: -29
+        TAG:named
+          TAG_String: "TerrainPopulated"
+          TAG_Byte: 1
+        TAG:named
+          TAG_String: "TileEntities"
+          TAG_List
+        TAG:named
+          TAG_String: "Entities"
+          TAG_List
+    TAG:named
+      TAG_String: "DataVersion"
+      TAG_Int: 1133
