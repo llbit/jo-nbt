@@ -39,6 +39,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Contains multiple tags of the same type.
+ */
 public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
   public final int type;
   public final List<SpecificTag> items;

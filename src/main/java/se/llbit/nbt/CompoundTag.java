@@ -38,6 +38,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Consists of multiple named tags.
+ *
+ * <p>The items of a compound tag can be indexed by name.
+ */
 public class CompoundTag extends SpecificTag implements Iterable<Tag> {
   final List<Tag> items;
 

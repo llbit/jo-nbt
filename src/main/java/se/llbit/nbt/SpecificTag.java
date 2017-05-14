@@ -33,6 +33,11 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+/**
+ * Specific tags are all types of tags that can appear explicitly in an NBT file.
+ *
+ * <p>The only non-sepcific tag is the named tag, which is an implicit construct.
+ */
 public abstract class SpecificTag extends Tag {
   public static SpecificTag read(byte type, DataInputStream in) {
     switch (type) {
