@@ -1,5 +1,6 @@
 # JO-NBT: Java NBT Library
 
+[![Javadocs](http://javadoc.io/badge/se.llbit/jo-nbt.svg)](http://javadoc.io/doc/se.llbit/jo-nbt)
 [![Build Status](https://travis-ci.org/llbit/jo-nbt.svg?branch=master)](https://travis-ci.org/llbit/jo-nbt)
 [![codecov](https://codecov.io/gh/llbit/jo-nbt/branch/master/graph/badge.svg)](https://codecov.io/gh/llbit/jo-nbt)
 
