@@ -1,5 +1,8 @@
 # JO-NBT: Java NBT Library
 
+[![Build Status](https://travis-ci.org/llbit/jo-nbt.svg?branch=master)](https://travis-ci.org/llbit/jo-nbt)
+[![codecov](https://codecov.io/gh/llbit/jo-nbt/branch/master/graph/badge.svg)](https://codecov.io/gh/llbit/jo-nbt)
+
 This is a Java library for the NBT file format used in Minecraft for storing
 world data.
 
@@ -14,4 +17,8 @@ The code is licensed under the Modified BSD License.
 
 Copyright (c) Jesper Öqvist, 2010-2017.
 
+
+## Dependencies
+
+Java 7 or higher is required to build this library.
 
