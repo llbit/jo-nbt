@@ -69,7 +69,7 @@ uploadArchives {
     pom.project {
       name 'jo-nbt'
       packaging 'jar'
-      description 'Small NBT library.'
+      description 'Java NBT library.'
       url 'https://github.com/llbit/jo-nbt'
       licenses {
         license {
