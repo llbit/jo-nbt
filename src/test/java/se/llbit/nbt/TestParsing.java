@@ -155,14 +155,14 @@ public class TestParsing {
 
   /** Malformed list tag that has TAG_End as element type. */
   @Test public void testError2() throws IOException {
-    Tag root = read("testfiles/error2.nbt");
+    Tag root = read("testfiles/badlist1.nbt");
     assertFalse(root.isError());
     assertEquals("Cannot create list of TAG_End", root.unpack().get("BadList").error());
   }
 
   /** Malformed list tag: EOF before size. */
   @Test public void testError3() throws IOException {
-    Tag root = read("testfiles/error3.nbt");
+    Tag root = read("testfiles/badlist2.nbt");
     assertFalse(root.isError());
     assertEquals("IOException while reading TAG_List:\nnull", root.unpack().get("BadList").error());
   }
