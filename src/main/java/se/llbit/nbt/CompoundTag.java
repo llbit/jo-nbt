@@ -57,7 +57,6 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
       if (last.isEnd()) {
         break;
       }
-
       tagThis.add(last);
     }
     return tagThis;

@@ -166,4 +166,13 @@ public class TestParsing {
     assertFalse(root.isError());
     assertEquals("IOException while reading TAG_List:\nnull", root.unpack().get("BadList").error());
   }
+
+  /** Malformed compound tag: EOF before item type. */
+  @Test public void testError4() throws IOException {
+    Tag root = read("testfiles/badcompound1.nbt");
+    assertFalse(root.isError());
+    // There is a parsing error inside the compound tag. Parsing is aborted and the result is an
+    // empty compound tag.
+    assertEquals(0, ((CompoundTag) root.unpack().get("BadCompound")).size());
+  }
 }
