@@ -61,6 +61,10 @@ public class ErrorTag extends SpecificTag {
     throw new Error("Cannot write an error tag to NBT stream (" + getError() + ")");
   }
 
+  @Override public String name() {
+    return "Tag.Error";
+  }
+
   @Override public boolean isEnd() {
     return true;
   }

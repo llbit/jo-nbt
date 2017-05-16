@@ -53,8 +53,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -110,8 +110,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -167,8 +167,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -234,8 +234,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -291,8 +291,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -344,8 +344,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -397,8 +397,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -449,8 +449,8 @@ public class TestTagProperties {
     assertFalse(Tag.END.isError());
     assertTrue(Tag.END.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", Tag.END.get("foo").error());
-    assertEquals("Can't index a non-ListTag", Tag.END.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", Tag.END.get("foo").error());
+    assertEquals("Can not index a non-ListTag", Tag.END.get(44).error());
 
     assertFalse(Tag.END.isList());
     assertFalse(Tag.END.isByteArray(0));
@@ -501,8 +501,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(5));
@@ -561,8 +561,8 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -627,7 +627,7 @@ public class TestTagProperties {
 
     assertEquals("bort", tag.get("burt").stringValue());
     assertEquals("No item named \"foo\" in this compound tag.", tag.get("foo").error());
-    assertEquals("Can't index a non-ListTag", tag.get(44).error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
 
     assertFalse(tag.isList());
     assertFalse(tag.isByteArray(0));
@@ -685,7 +685,7 @@ public class TestTagProperties {
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
 
-    assertEquals("Can't index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
     assertEquals("bort", tag.get(1).stringValue());
 
     assertTrue(tag.isList());
@@ -727,14 +727,60 @@ public class TestTagProperties {
     assertEquals(true, tag.boolValue(true));
   }
 
-  @Test(expected = IndexOutOfBoundsException.class)
-  public void testListTag2() {
-    List<SpecificTag> items = new ArrayList<>();
-    items.add(new IntTag(10));
-    items.add(new StringTag("bort"));
-    ListTag tag = new ListTag(Tag.TAG_STRING, items);
+  @Test public void testErrorTag() {
+    ErrorTag tag = new ErrorTag("failed horribly");
 
-    assertEquals(10, tag.get(0).intValue());
-    tag.get(2); // Out of bounds.
+    assertSame(tag, tag.unpack());
+    assertEquals("Tag.Error: \"failed horribly\"", tag.toString());
+    assertEquals("Tag.Error", tag.type());
+    assertEquals("Tag.Error", tag.name());
+    assertEquals("failed horribly", tag.error());
+    assertTrue(tag.isError());
+    assertTrue(tag.isEnd());
+
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
+
+    assertFalse(tag.isList());
+    assertFalse(tag.isByteArray(0));
+    assertFalse(tag.isByteArray(1));
+    assertFalse(tag.isCompoundTag());
+    assertFalse(tag.isNamed(""));
+    assertFalse(tag.isIntArray(0));
+    assertFalse(tag.isIntArray(1));
+    assertEquals(0, tag.byteArray().length);
+    assertEquals(0, tag.intArray().length);
+    assertEquals(null, tag.byteArray(null));
+    assertEquals(null, tag.intArray(null));
+
+    assertEquals(0, tag.byteValue());
+    assertEquals(-1, tag.byteValue(-1));
+
+    assertEquals(0, tag.shortValue());
+    assertEquals(-1, tag.shortValue((short) -1));
+
+    assertEquals(0, tag.intValue());
+    assertEquals(-1, tag.intValue(-1));
+
+    assertEquals(0, tag.longValue());
+    assertEquals(-1, tag.longValue(-1));
+
+    assertEquals(0, tag.floatValue(), 0.0001);
+    assertEquals(123, tag.floatValue(123), 0.0001);
+
+    assertEquals(0, tag.doubleValue(), 0.0001);
+    assertEquals(123, tag.doubleValue(123), 0.0001);
+
+    assertEquals("", tag.stringValue());
+    assertEquals("not string", tag.stringValue("not string"));
+    assertFalse(tag.same("not string"));
+
+    assertEquals(false, tag.boolValue());
+    assertEquals(true, tag.boolValue(true));
+  }
+
+  @Test(expected = Error.class) public void testErrorTag2() {
+    ErrorTag tag = new ErrorTag("failed horribly");
+    tag.tagType();
   }
 }

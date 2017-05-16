@@ -77,9 +77,7 @@ public abstract class Tag {
     }
   };
 
-  public String name() {
-    return type();
-  }
+  public abstract String name();
 
   public abstract String type();
 
@@ -252,7 +250,7 @@ public abstract class Tag {
   }
 
   public Tag get(String name) {
-    return new ErrorTag("Can't index-by-name in a non-CompoundTag");
+    return new ErrorTag("Can not index-by-name in a non-CompoundTag");
   }
 
   public void set(String name, Tag tag) {
@@ -264,6 +262,6 @@ public abstract class Tag {
   }
 
   public Tag get(int i) {
-    return new ErrorTag("Can't index a non-ListTag");
+    return new ErrorTag("Can not index a non-ListTag");
   }
 }
