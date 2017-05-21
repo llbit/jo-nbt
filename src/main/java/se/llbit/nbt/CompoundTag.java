@@ -175,4 +175,12 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
   @Override public Iterator<Tag> iterator() {
     return items.iterator();
   }
+
+  @Override public CompoundTag asCompound() {
+    return this;
+  }
+
+  public boolean isEmpty() {
+    return items.isEmpty();
+  }
 }

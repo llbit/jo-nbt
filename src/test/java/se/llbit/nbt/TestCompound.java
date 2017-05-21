@@ -31,44 +31,11 @@ package se.llbit.nbt;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-
-public class TestList {
-  @Test public void testSet() {
-    ListTag list = new ListTag(Tag.TAG_INT, Collections.<SpecificTag>emptyList());
-    list.add(new IntTag(1));
-    list.add(new IntTag(2));
-
-    assertEquals(1, list.get(0).intValue());
-    assertEquals(2, list.get(1).intValue());
-
-    list.set(1, new IntTag(-1));
-    list.set(0, new IntTag(100));
-
-    Iterator<SpecificTag> iterator = list.iterator();
-    assertEquals(100, iterator.next().intValue());
-    assertEquals(-1, iterator.next().intValue());
-  }
-
-  @Test(expected = IndexOutOfBoundsException.class)
-  public void testGet() {
-    List<SpecificTag> items = new ArrayList<>();
-    items.add(new IntTag(10));
-    items.add(new StringTag("bort"));
-    ListTag tag = new ListTag(Tag.TAG_STRING, items);
-
-    assertEquals(10, tag.get(0).intValue());
-    tag.get(2); // Out of bounds.
-  }
-
+public class TestCompound {
   @Test(expected = Error.class)
   public void testSetError() {
-    ListTag list = new ListTag(Tag.TAG_END, Collections.<SpecificTag>emptyList());
-    list.set("foo", Tag.END);
+    CompoundTag tag = new CompoundTag();
+    tag.add("foo", Tag.END);
+    tag.set(0, Tag.END);
   }
 }

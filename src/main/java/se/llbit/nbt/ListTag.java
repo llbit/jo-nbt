@@ -187,4 +187,12 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
   @Override public Iterator<SpecificTag> iterator() {
     return items.iterator();
   }
+
+  @Override public ListTag asList() {
+    return this;
+  }
+
+  public boolean isEmpty() {
+    return items.isEmpty();
+  }
 }

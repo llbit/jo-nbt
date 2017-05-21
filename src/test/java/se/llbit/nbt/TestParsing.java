@@ -129,8 +129,11 @@ public class TestParsing {
     try (DataInputStream in = openGzipInputStream("testfiles/chunk.dat")) {
       Set<String> request = new HashSet<>();
       request.add(".Level.Sections.0.Blocks");
+      request.add(".Level.Entities");
       Map<String, Tag> result = NamedTag.quickParse(in, request);
       assertEquals(16 * 16 * 16, result.get(".Level.Sections.0.Blocks").byteArray().length);
+      assertEquals(true, result.get(".Level.Entities").isList());
+      assertEquals(true, result.get(".Level.Entities").asList().isEmpty());
     }
   }
 
@@ -173,6 +176,20 @@ public class TestParsing {
     assertFalse(root.isError());
     // There is a parsing error inside the compound tag. Parsing is aborted and the result is an
     // empty compound tag.
-    assertEquals(0, ((CompoundTag) root.unpack().get("BadCompound")).size());
+    assertEquals(0, root.asCompound().get("BadCompound").asCompound().size());
+  }
+
+  /** Malformed compound tag: EOF before item type. */
+  @Test public void testError5() throws IOException {
+    Tag root = read("testfiles/badarray1.nbt");
+    assertFalse(root.isError());
+    assertEquals(true, root.asCompound().get("BadByteArray").isError());
+  }
+
+  /** Malformed compound tag: EOF before item type. */
+  @Test public void testError6() throws IOException {
+    Tag root = read("testfiles/badarray2.nbt");
+    assertFalse(root.isError());
+    assertEquals(true, root.asCompound().get("BadIntArray").isError());
   }
 }

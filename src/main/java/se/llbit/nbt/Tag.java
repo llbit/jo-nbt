@@ -31,6 +31,7 @@ package se.llbit.nbt;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Collections;
 
 /**
  * Abstract base class for all kinds of NBT tags.
@@ -51,6 +52,10 @@ public abstract class Tag {
   public static final int TAG_LIST = 9;
   public static final int TAG_COMPOUND = 10;
   public static final int TAG_INT_ARRAY = 11;
+
+  private static final ListTag EMPTY_LIST =
+      new ListTag(Tag.TAG_END, Collections.<SpecificTag>emptyList());
+  private static final CompoundTag EMPTY_COMPOUND = new CompoundTag();
 
   protected Tag() {
   }
@@ -263,5 +268,19 @@ public abstract class Tag {
 
   public Tag get(int i) {
     return new ErrorTag("Can not index a non-ListTag");
+  }
+
+  /**
+   * Returns this tag if it is a list tag, otherwise an empty list.
+   */
+  public ListTag asList() {
+    return EMPTY_LIST;
+  }
+
+  /**
+   * Returns this tag if it is a list tag, otherwise an empty list.
+   */
+  public CompoundTag asCompound() {
+    return EMPTY_COMPOUND;
   }
 }

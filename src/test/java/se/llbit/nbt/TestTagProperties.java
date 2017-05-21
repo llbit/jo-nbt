@@ -611,6 +611,9 @@ public class TestTagProperties {
     tag.add("burt", new StringTag("bort"));
 
     assertSame(tag, tag.unpack());
+    assertSame(tag, tag.asCompound());
+    assertFalse(tag.isEmpty());
+    assertEquals(0, tag.asList().size());
     assertEquals(Tag.TAG_COMPOUND, tag.tagType());
     assertEquals("TAG_Compound\n"
         + "  TAG:named\n"
@@ -675,6 +678,9 @@ public class TestTagProperties {
     ListTag tag = new ListTag(Tag.TAG_STRING, items);
 
     assertSame(tag, tag.unpack());
+    assertSame(tag, tag.asList());
+    assertFalse(tag.isEmpty());
+    assertEquals(0, tag.asCompound().size());
     assertEquals(Tag.TAG_LIST, tag.tagType());
     assertEquals("TAG_List\n"
         + "  TAG_Int: 10\n"

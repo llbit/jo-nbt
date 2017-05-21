@@ -183,4 +183,12 @@ public class NamedTag extends Tag {
     name.dumpTree(buff, indent + "  ");
     tag.dumpTree(buff, indent + "  ");
   }
+
+  @Override public ListTag asList() {
+    return tag.asList();
+  }
+
+  @Override public CompoundTag asCompound() {
+    return tag.asCompound();
+  }
 }
