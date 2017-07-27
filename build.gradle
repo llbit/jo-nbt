@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 apply plugin: 'jacoco'
 
-project.version = '1.0.0'
+project.version = '1.0.1'
 project.group = 'se.llbit'
 project.archivesBaseName = 'jo-nbt'
 

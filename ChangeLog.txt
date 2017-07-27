@@ -1,0 +1,9 @@
+1.0.1
+
+* Added new API methods:
+    * Tag.asList()
+    * Tag.asCompound()
+    * ListTag.isEmpty()
+    * CompoundTag.isEmpty()
+
+
