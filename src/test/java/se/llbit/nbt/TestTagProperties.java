@@ -616,11 +616,9 @@ public class TestTagProperties {
     assertEquals(0, tag.asList().size());
     assertEquals(Tag.TAG_COMPOUND, tag.tagType());
     assertEquals("TAG_Compound\n"
-        + "  TAG:named\n"
-        + "    TAG_String: \"bart\"\n"
+        + "  bart:\n"
         + "    TAG_Int: 10\n"
-        + "  TAG:named\n"
-        + "    TAG_String: \"burt\"\n"
+        + "  burt:\n"
         + "    TAG_String: \"bort\"\n", tag.toString());
     assertEquals("TAG_Compound", tag.type());
     assertEquals("TAG_Compound", tag.name());

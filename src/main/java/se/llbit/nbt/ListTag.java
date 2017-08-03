@@ -157,11 +157,11 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
     return "TAG_List";
   }
 
-  @Override public void dumpTree(StringBuilder buff, String indent) {
+  @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
-    dumpTree(buff);
+    printTagInfo(buff);
     for (Tag item : items) {
-      item.dumpTree(buff, indent + "  ");
+      item.printTag(buff, indent + "  ");
     }
   }
 

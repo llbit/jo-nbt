@@ -90,6 +90,10 @@ public abstract class Tag {
     return false;
   }
 
+  /**
+   * Test if this is a named tag with the given name.
+   * @return {@code true} if this is a named tag with the given name.
+   */
   public boolean isNamed(String name) {
     return false;
   }
@@ -101,19 +105,28 @@ public abstract class Tag {
     return false;
   }
 
+  /**
+   * Builds a string representation of this NBT tag and its children.
+   */
   public String dumpTree() {
     StringBuilder buff = new StringBuilder(4096);
-    dumpTree(buff, "");
+    printTag(buff, "");
     return buff.toString();
   }
 
-  public void dumpTree(StringBuilder buff) {
+  /**
+   * Print a string representation of this tag to the argument buffer.
+   */
+  public void printTagInfo(StringBuilder buff) {
     buff.append(name()).append(extraInfo()).append('\n');
   }
 
-  public void dumpTree(StringBuilder buff, String indent) {
+  /**
+   * Print a string representation of this tag to the argument buffer.
+   */
+  public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
-    dumpTree(buff);
+    printTagInfo(buff);
   }
 
   /**

@@ -112,11 +112,17 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
     items = new ArrayList<>();
   }
 
-  @Override public void dumpTree(StringBuilder buff, String indent) {
+  @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
-    dumpTree(buff);
+    printTagInfo(buff);
     for (Tag item : items) {
-      item.dumpTree(buff, indent + "  ");
+      if (item instanceof NamedTag) {
+        NamedTag tag = (NamedTag) item;
+        buff.append(String.format("%s  %s:\n", indent, tag.getName().stringValue()));
+        tag.tag.printTag(buff, indent + "    ");
+      } else {
+        item.printTag(buff, indent + "  ");
+      }
     }
   }
 

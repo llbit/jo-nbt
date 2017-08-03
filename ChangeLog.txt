@@ -1,3 +1,9 @@
+FUTURE
+
+* Made Tag.toString() output more compact.
+* Renamed Tag.dumpTree(StringBuilder) to printTagInfo.
+* Renamed Tag.dumpTree(StringBuilder, String) to printTag.
+
 1.0.1
 
 * Added new API methods:

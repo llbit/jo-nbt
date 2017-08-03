@@ -177,11 +177,11 @@ public class NamedTag extends Tag {
     return getName().same(name);
   }
 
-  @Override public void dumpTree(StringBuilder buff, String indent) {
+  @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
-    dumpTree(buff);
-    name.dumpTree(buff, indent + "  ");
-    tag.dumpTree(buff, indent + "  ");
+    printTagInfo(buff);
+    name.printTag(buff, indent + "  ");
+    tag.printTag(buff, indent + "  ");
   }
 
   @Override public ListTag asList() {

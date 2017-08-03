@@ -1,38 +1,27 @@
 TAG:named
   TAG_String: ""
   TAG_Compound
-    TAG:named
-      TAG_String: "Data"
+    Data:
       TAG_Compound
-        TAG:named
-          TAG_String: "RandomSeed"
+        RandomSeed:
           TAG_Long: 3059605472866619073
-        TAG:named
-          TAG_String: "generatorName"
+        generatorName:
           TAG_String: "default"
-        TAG:named
-          TAG_String: "BorderCenterZ"
+        BorderCenterZ:
           TAG_Double: 0.0
-        TAG:named
-          TAG_String: "Difficulty"
+        Difficulty:
           TAG_Byte: 2
-        TAG:named
-          TAG_String: "BorderSizeLerpTime"
+        BorderSizeLerpTime:
           TAG_Long: 0
-        TAG:named
-          TAG_String: "raining"
+        raining:
           TAG_Byte: 0
-        TAG:named
-          TAG_String: "DimensionData"
+        DimensionData:
           TAG_Compound
-            TAG:named
-              TAG_String: "1"
+            1:
               TAG_Compound
-                TAG:named
-                  TAG_String: "DragonFight"
+                DragonFight:
                   TAG_Compound
-                    TAG:named
-                      TAG_String: "Gateways"
+                    Gateways:
                       TAG_List
                         TAG_Int: 0
                         TAG_Int: 17
@@ -54,493 +43,338 @@ TAG:named
                         TAG_Int: 13
                         TAG_Int: 6
                         TAG_Int: 2
-                    TAG:named
-                      TAG_String: "DragonKilled"
+                    DragonKilled:
                       TAG_Byte: 1
-                    TAG:named
-                      TAG_String: "PreviouslyKilled"
+                    PreviouslyKilled:
                       TAG_Byte: 1
-        TAG:named
-          TAG_String: "Time"
+        Time:
           TAG_Long: 21676
-        TAG:named
-          TAG_String: "GameType"
+        GameType:
           TAG_Int: 1
-        TAG:named
-          TAG_String: "MapFeatures"
+        MapFeatures:
           TAG_Byte: 1
-        TAG:named
-          TAG_String: "BorderCenterX"
+        BorderCenterX:
           TAG_Double: 0.0
-        TAG:named
-          TAG_String: "BorderDamagePerBlock"
+        BorderDamagePerBlock:
           TAG_Double: 0.2
-        TAG:named
-          TAG_String: "BorderWarningBlocks"
+        BorderWarningBlocks:
           TAG_Double: 5.0
-        TAG:named
-          TAG_String: "BorderSizeLerpTarget"
+        BorderSizeLerpTarget:
           TAG_Double: 6.0E7
-        TAG:named
-          TAG_String: "Version"
+        Version:
           TAG_Compound
-            TAG:named
-              TAG_String: "Snapshot"
+            Snapshot:
               TAG_Byte: 1
-            TAG:named
-              TAG_String: "Id"
+            Id:
               TAG_Int: 1123
-            TAG:named
-              TAG_String: "Name"
+            Name:
               TAG_String: "17w13b"
-        TAG:named
-          TAG_String: "DayTime"
+        DayTime:
           TAG_Long: 5969
-        TAG:named
-          TAG_String: "initialized"
+        initialized:
           TAG_Byte: 1
-        TAG:named
-          TAG_String: "allowCommands"
+        allowCommands:
           TAG_Byte: 1
-        TAG:named
-          TAG_String: "SizeOnDisk"
+        SizeOnDisk:
           TAG_Long: 0
-        TAG:named
-          TAG_String: "GameRules"
+        GameRules:
           TAG_Compound
-            TAG:named
-              TAG_String: "doTileDrops"
+            doTileDrops:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "doFireTick"
+            doFireTick:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "reducedDebugInfo"
+            reducedDebugInfo:
               TAG_String: "false"
-            TAG:named
-              TAG_String: "naturalRegeneration"
+            naturalRegeneration:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "disableElytraMovementCheck"
+            disableElytraMovementCheck:
               TAG_String: "false"
-            TAG:named
-              TAG_String: "doMobLoot"
+            doMobLoot:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "keepInventory"
+            keepInventory:
               TAG_String: "false"
-            TAG:named
-              TAG_String: "doEntityDrops"
+            doEntityDrops:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "doLimitedCrafting"
+            doLimitedCrafting:
               TAG_String: "false"
-            TAG:named
-              TAG_String: "mobGriefing"
+            mobGriefing:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "randomTickSpeed"
+            randomTickSpeed:
               TAG_String: "3"
-            TAG:named
-              TAG_String: "commandBlockOutput"
+            commandBlockOutput:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "spawnRadius"
+            spawnRadius:
               TAG_String: "10"
-            TAG:named
-              TAG_String: "doMobSpawning"
+            doMobSpawning:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "maxEntityCramming"
+            maxEntityCramming:
               TAG_String: "24"
-            TAG:named
-              TAG_String: "logAdminCommands"
+            logAdminCommands:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "spectatorsGenerateChunks"
+            spectatorsGenerateChunks:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "doWeatherCycle"
+            doWeatherCycle:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "sendCommandFeedback"
+            sendCommandFeedback:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "doDaylightCycle"
+            doDaylightCycle:
               TAG_String: "true"
-            TAG:named
-              TAG_String: "showDeathMessages"
+            showDeathMessages:
               TAG_String: "true"
-        TAG:named
-          TAG_String: "Player"
+        Player:
           TAG_Compound
-            TAG:named
-              TAG_String: "HurtByTimestamp"
+            HurtByTimestamp:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "SleepTimer"
+            SleepTimer:
               TAG_Short: 0
-            TAG:named
-              TAG_String: "Attributes"
+            Attributes:
               TAG_List
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 20.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.maxHealth"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 0.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.knockbackResistance"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 0.10000000149011612
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.movementSpeed"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 0.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.armor"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 0.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.armorToughness"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 1.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.attackDamage"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 4.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.attackSpeed"
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Base"
+                  Base:
                     TAG_Double: 0.0
-                  TAG:named
-                    TAG_String: "Name"
+                  Name:
                     TAG_String: "generic.luck"
-            TAG:named
-              TAG_String: "Invulnerable"
+            Invulnerable:
               TAG_Byte: 0
-            TAG:named
-              TAG_String: "FallFlying"
+            FallFlying:
               TAG_Byte: 0
-            TAG:named
-              TAG_String: "PortalCooldown"
+            PortalCooldown:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "AbsorptionAmount"
+            AbsorptionAmount:
               TAG_Float: 0.0
-            TAG:named
-              TAG_String: "abilities"
+            abilities:
               TAG_Compound
-                TAG:named
-                  TAG_String: "invulnerable"
+                invulnerable:
                   TAG_Byte: 1
-                TAG:named
-                  TAG_String: "mayfly"
+                mayfly:
                   TAG_Byte: 1
-                TAG:named
-                  TAG_String: "instabuild"
+                instabuild:
                   TAG_Byte: 1
-                TAG:named
-                  TAG_String: "walkSpeed"
+                walkSpeed:
                   TAG_Float: 0.1
-                TAG:named
-                  TAG_String: "mayBuild"
+                mayBuild:
                   TAG_Byte: 1
-                TAG:named
-                  TAG_String: "flying"
+                flying:
                   TAG_Byte: 0
-                TAG:named
-                  TAG_String: "flySpeed"
+                flySpeed:
                   TAG_Float: 0.05
-            TAG:named
-              TAG_String: "FallDistance"
+            FallDistance:
               TAG_Float: 0.7570025
-            TAG:named
-              TAG_String: "recipeBook"
+            recipeBook:
               TAG_String: "{}"
-            TAG:named
-              TAG_String: "DeathTime"
+            DeathTime:
               TAG_Short: 0
-            TAG:named
-              TAG_String: "XpSeed"
+            XpSeed:
               TAG_Int: 596490405
-            TAG:named
-              TAG_String: "XpTotal"
+            XpTotal:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "playerGameType"
+            playerGameType:
               TAG_Int: 1
-            TAG:named
-              TAG_String: "seenCredits"
+            seenCredits:
               TAG_Byte: 0
-            TAG:named
-              TAG_String: "Motion"
+            Motion:
               TAG_List
                 TAG_Double: 0.0
                 TAG_Double: -0.30153472366278034
                 TAG_Double: 0.0
-            TAG:named
-              TAG_String: "UUIDLeast"
+            UUIDLeast:
               TAG_Long: -8702722575547708054
-            TAG:named
-              TAG_String: "Health"
+            Health:
               TAG_Float: 20.0
-            TAG:named
-              TAG_String: "foodSaturationLevel"
+            foodSaturationLevel:
               TAG_Float: 5.0
-            TAG:named
-              TAG_String: "Air"
+            Air:
               TAG_Short: 300
-            TAG:named
-              TAG_String: "OnGround"
+            OnGround:
               TAG_Byte: 0
-            TAG:named
-              TAG_String: "Dimension"
+            Dimension:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "Rotation"
+            Rotation:
               TAG_List
                 TAG_Float: -123.45381
                 TAG_Float: 19.200106
-            TAG:named
-              TAG_String: "XpLevel"
+            XpLevel:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "Score"
+            Score:
               TAG_Int: 0
-            TAG:named
-              TAG_String: "UUIDMost"
+            UUIDMost:
               TAG_Long: 7888253063937411876
-            TAG:named
-              TAG_String: "Sleeping"
+            Sleeping:
               TAG_Byte: 0
-            TAG:named
-              TAG_String: "Pos"
+            Pos:
               TAG_List
                 TAG_Double: -197.878390702346
                 TAG_Double: 71.49520087700593
                 TAG_Double: 191.4449929209538
-            TAG:named
-              TAG_String: "Fire"
+            Fire:
               TAG_Short: -20
-            TAG:named
-              TAG_String: "XpP"
+            XpP:
               TAG_Float: 0.0
-            TAG:named
-              TAG_String: "EnderItems"
+            EnderItems:
               TAG_List
-            TAG:named
-              TAG_String: "DataVersion"
+            DataVersion:
               TAG_Int: 1123
-            TAG:named
-              TAG_String: "foodLevel"
+            foodLevel:
               TAG_Int: 20
-            TAG:named
-              TAG_String: "foodExhaustionLevel"
+            foodExhaustionLevel:
               TAG_Float: 0.0
-            TAG:named
-              TAG_String: "HurtTime"
+            HurtTime:
               TAG_Short: 0
-            TAG:named
-              TAG_String: "SelectedItemSlot"
+            SelectedItemSlot:
               TAG_Int: 7
-            TAG:named
-              TAG_String: "Inventory"
+            Inventory:
               TAG_List
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 0
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 9
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 1
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 10
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 2
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 11
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 3
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 12
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 4
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 13
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 5
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 14
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 6
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 15
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 7
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 7
                 TAG_Compound
-                  TAG:named
-                    TAG_String: "Slot"
+                  Slot:
                     TAG_Byte: 8
-                  TAG:named
-                    TAG_String: "id"
+                  id:
                     TAG_String: "minecraft:concrete_powder"
-                  TAG:named
-                    TAG_String: "Count"
+                  Count:
                     TAG_Byte: 64
-                  TAG:named
-                    TAG_String: "Damage"
+                  Damage:
                     TAG_Short: 8
-            TAG:named
-              TAG_String: "foodTickTimer"
+            foodTickTimer:
               TAG_Int: 0
-        TAG:named
-          TAG_String: "SpawnY"
+        SpawnY:
           TAG_Int: 64
-        TAG:named
-          TAG_String: "rainTime"
+        rainTime:
           TAG_Int: 32418
-        TAG:named
-          TAG_String: "thunderTime"
+        thunderTime:
           TAG_Int: 87270
-        TAG:named
-          TAG_String: "SpawnZ"
+        SpawnZ:
           TAG_Int: 165
-        TAG:named
-          TAG_String: "hardcore"
+        hardcore:
           TAG_Byte: 0
-        TAG:named
-          TAG_String: "DifficultyLocked"
+        DifficultyLocked:
           TAG_Byte: 0
-        TAG:named
-          TAG_String: "SpawnX"
+        SpawnX:
           TAG_Int: -161
-        TAG:named
-          TAG_String: "clearWeatherTime"
+        clearWeatherTime:
           TAG_Int: 0
-        TAG:named
-          TAG_String: "thundering"
+        thundering:
           TAG_Byte: 0
-        TAG:named
-          TAG_String: "generatorVersion"
+        generatorVersion:
           TAG_Int: 1
-        TAG:named
-          TAG_String: "version"
+        version:
           TAG_Int: 19133
-        TAG:named
-          TAG_String: "BorderSafeZone"
+        BorderSafeZone:
           TAG_Double: 5.0
-        TAG:named
-          TAG_String: "generatorOptions"
+        generatorOptions:
           TAG_String: ""
-        TAG:named
-          TAG_String: "LastPlayed"
+        LastPlayed:
           TAG_Long: 1491032187871
-        TAG:named
-          TAG_String: "BorderWarningTime"
+        BorderWarningTime:
           TAG_Double: 15.0
-        TAG:named
-          TAG_String: "LevelName"
+        LevelName:
           TAG_String: "17w06a"
-        TAG:named
-          TAG_String: "BorderSize"
+        BorderSize:
           TAG_Double: 6.0E7
-        TAG:named
-          TAG_String: "DataVersion"
+        DataVersion:
           TAG_Int: 1123
