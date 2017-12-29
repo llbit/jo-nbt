@@ -126,7 +126,7 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
     }
   }
 
-  public CompoundTag(List<Tag> items) {
+  public CompoundTag(List<? extends Tag> items) {
     this.items = new ArrayList<>(items);
   }
 

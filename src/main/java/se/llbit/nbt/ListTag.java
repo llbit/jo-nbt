@@ -115,7 +115,7 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
    * @param type the type of tag that is stored in this list
    * @param items the items of this list
    */
-  public ListTag(int type, List<SpecificTag> items) {
+  public ListTag(int type, List<? extends SpecificTag> items) {
     this.type = type;
     this.items = new ArrayList<>(items);
   }
