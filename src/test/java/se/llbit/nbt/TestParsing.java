@@ -176,8 +176,9 @@ public class TestParsing {
   /** Test that writing an NBT tree to disk preserves all data. */
   @Test public void testRoundTrip1() throws IOException {
     Tag root = FileUtils.readGzipped("testfiles/level.dat");
-    try (DataOutputStream out = new DataOutputStream(
-        new GZIPOutputStream(new FileOutputStream("testfiles/level.dat.out")))) {
+    try (FileOutputStream fout = new FileOutputStream("testfiles/level.dat.out");
+        GZIPOutputStream gzout = new GZIPOutputStream(fout);
+        DataOutputStream out = new DataOutputStream(gzout)) {
       root.write(out);
     }
     Tag root2 = FileUtils.readGzipped("testfiles/level.dat.out");
@@ -186,8 +187,9 @@ public class TestParsing {
 
   @Test public void testRoundTrip2() throws IOException {
     Tag root = FileUtils.readGzipped("testfiles/chunk.dat");
-    try (DataOutputStream out = new DataOutputStream(
-        new GZIPOutputStream(new FileOutputStream("testfiles/chunk.dat.out")))) {
+    try (FileOutputStream fout = new FileOutputStream("testfiles/chunk.dat.out");
+        GZIPOutputStream gzout = new GZIPOutputStream(fout);
+        DataOutputStream out = new DataOutputStream(gzout)) {
       root.write(out);
     }
     Tag root2 = FileUtils.readGzipped("testfiles/chunk.dat.out");
@@ -201,8 +203,9 @@ public class TestParsing {
         new NamedTag("borks", new ListTag(Tag.TAG_STRING,
             Arrays.asList(new StringTag("foo"), new StringTag("bar"))))
     )));
-    try (DataOutputStream out = new DataOutputStream(
-        new GZIPOutputStream(new FileOutputStream("testfiles/roundtrip3.dat.out")))) {
+    try (FileOutputStream fout = new FileOutputStream("testfiles/roundtrip3.dat.out");
+        GZIPOutputStream gzout = new GZIPOutputStream(fout);
+        DataOutputStream out = new DataOutputStream(gzout)) {
       root.write(out);
     }
     Tag root2 = FileUtils.readGzipped("testfiles/roundtrip3.dat.out");

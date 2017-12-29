@@ -19,6 +19,8 @@ dependencies {
   testCompile 'junit:junit:4.11'
 }
 
+jar.manifest.attributes 'Main-Class': 'se.llbit.nbt.DumpNBT'
+
 test.inputs.dir file('testfiles')
 
 jacocoTestReport {
