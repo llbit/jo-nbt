@@ -1,4 +1,4 @@
-/* Copyright (c) 2010-2017, Jesper Öqvist
+/* Copyright (c) 2017, Jesper Öqvist
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,73 +29,40 @@
  */
 package se.llbit.nbt;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
 
-public class IntArrayTag extends SpecificTag {
-  public final int[] value;
+final class FileUtils {
+  private FileUtils() { }
 
-  public static SpecificTag read(DataInputStream in) {
-    try {
-      int length = in.readInt();
-      int[] data = new int[length];
-      for (int i = 0; i < length; ++i) {
-        data[i] = in.readInt();
-      }
-      return new IntArrayTag(data);
+  public static Tag read(String filename) throws IOException {
+    try (DataInputStream in = new DataInputStream(openInputStream(filename))) {
+      return NamedTag.read(in);
     } catch (IOException e) {
-      return new ErrorTag("IOException while reading TAG_Int_Array:\n" + e.getMessage());
+      System.err.println("Failed to read NBT file: " + filename);
+      throw e;
     }
   }
 
-  @Override public void write(DataOutputStream out) throws IOException {
-    out.writeInt(value.length);
-    for (int i = 0; i < value.length; ++i) {
-      out.writeInt(value[i]);
-    }
+  public static InputStream openInputStream(String filename) throws IOException {
+    return new BufferedInputStream(new FileInputStream(new File(filename)));
   }
 
-  static void skip(DataInputStream in) {
-    try {
-      int length = in.readInt();
-      in.skipBytes(length * 4);
+  public static Tag readGzipped(String filename) throws IOException {
+    try (DataInputStream in = openGzipInputStream(filename)) {
+      return NamedTag.read(in);
     } catch (IOException e) {
+      System.err.println("Failed to read NBT file: " + filename);
+      throw e;
     }
   }
 
-  public IntArrayTag(int[] data) {
-    this.value = data;
-  }
-
-  public int[] getData() {
-    return value;
-  }
-
-  @Override public String extraInfo() {
-    return ": " + value.length;
-  }
-  @Override public String name() {
-    return "TAG_Int_Array";
-  }
-
-  @Override public String type() {
-    return "TAG_Int_Array";
-  }
-
-  @Override public int tagType() {
-    return Tag.TAG_INT_ARRAY;
-  }
-
-  @Override public int[] intArray() {
-    return value;
-  }
-
-  @Override public int[] intArray(int[] defaultValue) {
-    return value;
-  }
-
-  @Override public boolean isIntArray(int size) {
-    return value.length >= size;
+  public static DataInputStream openGzipInputStream(String filename) throws IOException {
+    return new DataInputStream(new GZIPInputStream(openInputStream(filename)));
   }
 }

@@ -56,26 +56,9 @@ import static org.junit.Assert.assertTrue;
 
 public class TestDumpTree {
 
-  private static InputStream openInputStream(String filename) throws IOException {
-    return new BufferedInputStream(new FileInputStream(new File(filename)));
-  }
-
-  protected static Tag readGzipped(String filename) throws IOException {
-    try (DataInputStream in = openGzipInputStream(filename)) {
-      return NamedTag.read(in);
-    } catch (IOException e) {
-      System.err.println("Failed to read NBT file: " + filename);
-      throw e;
-    }
-  }
-
-  private static DataInputStream openGzipInputStream(String filename) throws IOException {
-    return new DataInputStream(new GZIPInputStream(openInputStream(filename)));
-  }
-
   /** Read a Minecraft level.dat file and test that it has the expected structure. */
   @Test public void testLevelDat1() throws IOException {
-    Tag root = readGzipped("testfiles/level.dat");
+    Tag root = FileUtils.readGzipped("testfiles/level.dat");
     List<String> lines =
         Files.readAllLines(Paths.get("testfiles/level.dump"), StandardCharsets.UTF_8);
     String actual = root.dumpTree();
@@ -88,7 +71,7 @@ public class TestDumpTree {
   }
 
   @Test public void testChunk() throws IOException {
-    Tag root = readGzipped("testfiles/chunk.dat");
+    Tag root = FileUtils.readGzipped("testfiles/chunk.dat");
     List<String> lines =
         Files.readAllLines(Paths.get("testfiles/chunk.dump"), StandardCharsets.UTF_8);
     String actual = root.dumpTree();
@@ -98,26 +81,5 @@ public class TestDumpTree {
       expected.append("\n");
     }
     assertEquals(expected.toString(), actual);
-  }
-
-  /** Test that reading a writing an NBT tree to disk preserves the contents. */
-  @Test public void testRoundTrip1() throws IOException {
-    Tag root = readGzipped("testfiles/level.dat");
-    try (DataOutputStream out = new DataOutputStream(
-        new GZIPOutputStream(new FileOutputStream("testfiles/level.dat.out")))) {
-      root.write(out);
-    }
-    Tag root2 = readGzipped("testfiles/level.dat.out");
-    assertEquals(root.dumpTree(), root2.dumpTree());
-  }
-
-  @Test public void testRoundTrip2() throws IOException {
-    Tag root = readGzipped("testfiles/chunk.dat");
-    try (DataOutputStream out = new DataOutputStream(
-        new GZIPOutputStream(new FileOutputStream("testfiles/chunk.dat.out")))) {
-      root.write(out);
-    }
-    Tag root2 = readGzipped("testfiles/chunk.dat.out");
-    assertEquals(root.dumpTree(), root2.dumpTree());
   }
 }

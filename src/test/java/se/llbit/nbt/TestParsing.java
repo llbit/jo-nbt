@@ -33,49 +33,29 @@ import org.junit.Test;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class TestParsing {
-  protected static Tag read(String filename) throws IOException {
-    try (DataInputStream in = new DataInputStream(openInputStream(filename))) {
-      return NamedTag.read(in);
-    } catch (IOException e) {
-      System.err.println("Failed to read NBT file: " + filename);
-      throw e;
-    }
-  }
-
-  private static InputStream openInputStream(String filename) throws IOException {
-    return new BufferedInputStream(new FileInputStream(new File(filename)));
-  }
-
-  protected static Tag readGzipped(String filename) throws IOException {
-    try (DataInputStream in = openGzipInputStream(filename)) {
-      return NamedTag.read(in);
-    } catch (IOException e) {
-      System.err.println("Failed to read NBT file: " + filename);
-      throw e;
-    }
-  }
-
-  private static DataInputStream openGzipInputStream(String filename) throws IOException {
-    return new DataInputStream(new GZIPInputStream(openInputStream(filename)));
-  }
-
   /** Read a Minecraft level.dat file and test that it has the expected structure. */
   @Test public void testLevelDat1() throws IOException {
-    Tag root = readGzipped("testfiles/level.dat");
+    Tag root = FileUtils.readGzipped("testfiles/level.dat");
     assertTrue(root.isNamed(""));
     Tag data = root.unpack();
     assertTrue(data.isCompoundTag());
@@ -86,7 +66,7 @@ public class TestParsing {
 
   /** Partial parsing skips over tags that are not requested. */
   @Test public void testPartial1() throws IOException {
-    try (DataInputStream in = openGzipInputStream("testfiles/level.dat")) {
+    try (DataInputStream in = FileUtils.openGzipInputStream("testfiles/level.dat")) {
       Set<String> request = new HashSet<>();
       request.add(".Data.Version.Name");
       request.add(".Data.DimensionData.1.DragonFight.Gateways");
@@ -100,7 +80,7 @@ public class TestParsing {
 
   /** List items can be accessed by index. */
   @Test public void testPartial2() throws IOException {
-    try (DataInputStream in = openGzipInputStream("testfiles/level.dat")) {
+    try (DataInputStream in = FileUtils.openGzipInputStream("testfiles/level.dat")) {
       Set<String> request = new HashSet<>();
       request.add(".Data.Player.Attributes.3"); // Prefix.
       request.add(".Data.Player.Attributes.7"); // Ignored.
@@ -114,7 +94,7 @@ public class TestParsing {
 
   /** If one request is a prefix of another request, then only the prefix is in the response. */
   @Test public void testPartial3() throws IOException {
-    try (DataInputStream in = openGzipInputStream("testfiles/level.dat")) {
+    try (DataInputStream in = FileUtils.openGzipInputStream("testfiles/level.dat")) {
       Set<String> request = new HashSet<>();
       request.add(".Data.Player.Attributes.3"); // Prefix.
       request.add(".Data.Player.Attributes.3.Name"); // Ignored.
@@ -126,7 +106,7 @@ public class TestParsing {
   }
 
   @Test public void testPartial4() throws IOException {
-    try (DataInputStream in = openGzipInputStream("testfiles/chunk.dat")) {
+    try (DataInputStream in = FileUtils.openGzipInputStream("testfiles/chunk.dat")) {
       Set<String> request = new HashSet<>();
       request.add(".Level.Sections.0.Blocks");
       request.add(".Level.Entities");
@@ -139,40 +119,40 @@ public class TestParsing {
 
   /** Test parsing error. */
   @Test public void testEmpty() throws IOException {
-    Tag root = read("testfiles/empty.nbt");
+    Tag root = FileUtils.read("testfiles/empty.nbt");
     assertTrue(root.isError());
   }
 
   /** Test parsing error. */
   @Test public void testEmptyList() throws IOException {
-    Tag root = read("testfiles/emptylist.nbt");
+    Tag root = FileUtils.read("testfiles/emptylist.nbt");
     assertTrue(root.unpack().get("EmptyList").isList());
     assertTrue(((ListTag) root.unpack().get("EmptyList")).size() == 0);
   }
 
   @Test public void testError1() throws IOException {
-    Tag root = read("testfiles/error1.nbt");
+    Tag root = FileUtils.read("testfiles/error1.nbt");
     assertFalse(root.isError());
     assertEquals("Unknown tag type: 104", root.unpack().error());
   }
 
   /** Malformed list tag that has TAG_End as element type. */
   @Test public void testError2() throws IOException {
-    Tag root = read("testfiles/badlist1.nbt");
+    Tag root = FileUtils.read("testfiles/badlist1.nbt");
     assertFalse(root.isError());
     assertEquals("Cannot create list of TAG_End", root.unpack().get("BadList").error());
   }
 
   /** Malformed list tag: EOF before size. */
   @Test public void testError3() throws IOException {
-    Tag root = read("testfiles/badlist2.nbt");
+    Tag root = FileUtils.read("testfiles/badlist2.nbt");
     assertFalse(root.isError());
     assertEquals("IOException while reading TAG_List:\nnull", root.unpack().get("BadList").error());
   }
 
   /** Malformed compound tag: EOF before item type. */
   @Test public void testError4() throws IOException {
-    Tag root = read("testfiles/badcompound1.nbt");
+    Tag root = FileUtils.read("testfiles/badcompound1.nbt");
     assertFalse(root.isError());
     // There is a parsing error inside the compound tag. Parsing is aborted and the result is an
     // empty compound tag.
@@ -181,15 +161,51 @@ public class TestParsing {
 
   /** Malformed compound tag: EOF before item type. */
   @Test public void testError5() throws IOException {
-    Tag root = read("testfiles/badarray1.nbt");
+    Tag root = FileUtils.read("testfiles/badarray1.nbt");
     assertFalse(root.isError());
     assertEquals(true, root.asCompound().get("BadByteArray").isError());
   }
 
   /** Malformed compound tag: EOF before item type. */
   @Test public void testError6() throws IOException {
-    Tag root = read("testfiles/badarray2.nbt");
+    Tag root = FileUtils.read("testfiles/badarray2.nbt");
     assertFalse(root.isError());
     assertEquals(true, root.asCompound().get("BadIntArray").isError());
+  }
+
+  /** Test that writing an NBT tree to disk preserves all data. */
+  @Test public void testRoundTrip1() throws IOException {
+    Tag root = FileUtils.readGzipped("testfiles/level.dat");
+    try (DataOutputStream out = new DataOutputStream(
+        new GZIPOutputStream(new FileOutputStream("testfiles/level.dat.out")))) {
+      root.write(out);
+    }
+    Tag root2 = FileUtils.readGzipped("testfiles/level.dat.out");
+    assertEquals(root.dumpTree(), root2.dumpTree());
+  }
+
+  @Test public void testRoundTrip2() throws IOException {
+    Tag root = FileUtils.readGzipped("testfiles/chunk.dat");
+    try (DataOutputStream out = new DataOutputStream(
+        new GZIPOutputStream(new FileOutputStream("testfiles/chunk.dat.out")))) {
+      root.write(out);
+    }
+    Tag root2 = FileUtils.readGzipped("testfiles/chunk.dat.out");
+    assertEquals(root.dumpTree(), root2.dumpTree());
+  }
+
+  @Test public void testRoundTrip3() throws IOException {
+    Tag root = new NamedTag("", new CompoundTag(Arrays.asList(
+        new NamedTag("bork", new IntArrayTag(new int[] { 38, 39, 20 })),
+        new NamedTag("burk", new LongTag(12)),
+        new NamedTag("borks", new ListTag(Tag.TAG_STRING,
+            Arrays.asList(new StringTag("foo"), new StringTag("bar"))))
+    )));
+    try (DataOutputStream out = new DataOutputStream(
+        new GZIPOutputStream(new FileOutputStream("testfiles/roundtrip3.dat.out")))) {
+      root.write(out);
+    }
+    Tag root2 = FileUtils.readGzipped("testfiles/roundtrip3.dat.out");
+    assertEquals(root.dumpTree(), root2.dumpTree());
   }
 }

@@ -78,43 +78,37 @@ public abstract class SpecificTag extends Tag {
   static void skip(byte type, DataInputStream in) {
     try {
       switch (type) {
-        case 1:
-          // TAG_Byte
+        case Tag.TAG_BYTE:
           in.skipBytes(1);
           break;
-        case 2:
-          // TAG_Short
+        case Tag.TAG_SHORT:
           in.skipBytes(2);
           break;
-        case 3:
-          // TAG_Int
+        case Tag.TAG_INT:
           in.skipBytes(4);
           break;
-        case 4:
-          // TAG_Long
+        case Tag.TAG_LONG:
           in.skipBytes(8);
           break;
-        case 5:
-          // TAG_Float
+        case Tag.TAG_FLOAT:
           in.skipBytes(4);
           break;
-        case 6:
-          // TAG_Double
+        case Tag.TAG_DOUBLE:
           in.skipBytes(8);
           break;
-        case 7:
+        case Tag.TAG_BYTE_ARRAY:
           ByteArrayTag.skip(in);
           break;
-        case 8:
+        case Tag.TAG_STRING:
           StringTag.skip(in);
           break;
-        case 9:
+        case Tag.TAG_LIST:
           ListTag.skip(in);
           break;
-        case 10:
+        case Tag.TAG_COMPOUND:
           CompoundTag.skip(in);
           break;
-        case 11:
+        case Tag.TAG_INT_ARRAY:
           IntArrayTag.skip(in);
           break;
       }
