@@ -1,7 +1,6 @@
-FUTURE
+1.1.0
 
-* Added a main program to dump gzipped NBT files to a
-  text representation: se.llbit.nbt.DumpNBT.
+* Added a main program to dump gzipped NBT files as text (se.llbit.nbt.DumpNBT).
 * Made Tag.toString() output more compact.
 * Renamed Tag.dumpTree(StringBuilder) to printTagInfo.
 * Renamed Tag.dumpTree(StringBuilder, String) to printTag.
