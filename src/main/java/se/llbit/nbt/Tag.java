@@ -40,6 +40,7 @@ import java.util.Collections;
  * nodes in the tree, while other tag types are leafs.
  */
 public abstract class Tag {
+  // TAG IDs:
   public static final int TAG_END = 0;
   public static final int TAG_BYTE = 1;
   public static final int TAG_SHORT = 2;
@@ -52,6 +53,7 @@ public abstract class Tag {
   public static final int TAG_LIST = 9;
   public static final int TAG_COMPOUND = 10;
   public static final int TAG_INT_ARRAY = 11;
+  public static final int TAG_LONG_ARRAY = 12; // Added in Minecraft 1.13.
 
   private static final ListTag EMPTY_LIST =
       new ListTag(Tag.TAG_END, Collections.<SpecificTag>emptyList());
@@ -245,6 +247,14 @@ public abstract class Tag {
     return defaultValue;
   }
 
+  public long[] longArray() {
+    return new long[0];
+  }
+
+  public long[] longArray(long[] defaultValue) {
+    return defaultValue;
+  }
+
   public boolean isCompoundTag() {
     return false;
   }
@@ -264,6 +274,13 @@ public abstract class Tag {
    * Test if this is an int array with a size greater or equal to the given size.
    */
   public boolean isIntArray(int size) {
+    return false;
+  }
+
+  /**
+   * Test if this is a long array with a size greater or equal to the given size.
+   */
+  public boolean isLongArray(int size) {
     return false;
   }
 

@@ -63,10 +63,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed(""));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(101, tag.byteValue());
     assertEquals(101, tag.byteValue(-1));
@@ -120,10 +124,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed(""));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -177,10 +185,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed("int"));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -244,10 +256,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed("bort"));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -301,10 +317,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed("bort"));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -354,10 +374,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed("burt"));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -407,10 +431,14 @@ public class TestTagProperties {
     assertFalse(tag.isNamed("burt"));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
+    assertFalse(tag.isLongArray(1));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -459,10 +487,14 @@ public class TestTagProperties {
     assertFalse(Tag.END.isNamed("burt"));
     assertFalse(Tag.END.isIntArray(0));
     assertFalse(Tag.END.isIntArray(1));
+    assertFalse(Tag.END.isLongArray(0));
+    assertFalse(Tag.END.isLongArray(1));
     assertEquals(0, Tag.END.byteArray().length);
     assertEquals(0, Tag.END.intArray().length);
+    assertEquals(0, Tag.END.longArray().length);
     assertEquals(null, Tag.END.byteArray(null));
     assertEquals(null, Tag.END.intArray(null));
+    assertEquals(null, Tag.END.longArray(null));
 
     assertEquals(0, Tag.END.byteValue());
     assertEquals(-1, Tag.END.byteValue(-1));
@@ -518,10 +550,13 @@ public class TestTagProperties {
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
     assertFalse(tag.isIntArray(-11));
+    assertFalse(tag.isLongArray(0));
     assertEquals(4, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertArrayEquals(new byte[] {3,2,4,101}, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -573,10 +608,74 @@ public class TestTagProperties {
     assertFalse(tag.isIntArray(100));
     assertTrue(tag.isIntArray(4));
     assertTrue(tag.isIntArray(-10));
+    assertFalse(tag.isLongArray(0));
     assertEquals(0, tag.byteArray().length);
     assertEquals(4, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertArrayEquals(new int[] {3,2,4,101}, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
+
+    assertEquals(0, tag.byteValue());
+    assertEquals(-1, tag.byteValue(-1));
+
+    assertEquals(0, tag.shortValue());
+    assertEquals(-1, tag.shortValue((short) -1));
+
+    assertEquals(0, tag.intValue());
+    assertEquals(-1, tag.intValue(-1));
+
+    assertEquals(0, tag.longValue());
+    assertEquals(-1, tag.longValue(-1));
+
+    assertEquals(0, tag.floatValue(), 0.0001);
+    assertEquals(123, tag.floatValue(123), 0.0001);
+
+    assertEquals(0, tag.doubleValue(), 0.0001);
+    assertEquals(123, tag.doubleValue(123), 0.0001);
+
+    assertEquals("", tag.stringValue());
+    assertEquals("not string", tag.stringValue("not string"));
+    assertFalse(tag.same("not string"));
+
+    assertEquals(false, tag.boolValue());
+    assertEquals(true, tag.boolValue(true));
+  }
+
+  @Test public void testLongArrayTag() {
+    LongArrayTag tag = new LongArrayTag(new long[] {3, 2, 4, 101});
+
+    assertSame(tag, tag.unpack());
+    assertEquals(Tag.TAG_LONG_ARRAY, tag.tagType());
+    assertEquals("TAG_Long_Array: 4", tag.toString());
+    assertEquals("TAG_Long_Array", tag.type());
+    assertEquals("TAG_Long_Array", tag.name());
+    assertEquals("", tag.error());
+    assertFalse(tag.isError());
+    assertFalse(tag.isEnd());
+
+    assertEquals("Can not index-by-name in a non-CompoundTag", tag.get("foo").error());
+    assertEquals("Can not index a non-ListTag", tag.get(44).error());
+
+    assertFalse(tag.isList());
+    assertFalse(tag.isByteArray(0));
+    assertFalse(tag.isByteArray(1));
+    assertFalse(tag.isCompoundTag());
+    assertFalse(tag.isNamed("burt"));
+    assertFalse(tag.isIntArray(5));
+    assertFalse(tag.isIntArray(100));
+    assertFalse(tag.isIntArray(4));
+    assertFalse(tag.isIntArray(-10));
+    assertFalse(tag.isLongArray(5));
+    assertFalse(tag.isLongArray(100));
+    assertTrue(tag.isLongArray(4));
+    assertTrue(tag.isLongArray(-10));
+    assertEquals(0, tag.byteArray().length);
+    assertEquals(0, tag.intArray().length);
+    assertEquals(4, tag.longArray().length);
+    assertEquals(null, tag.byteArray(null));
+    assertEquals(null, tag.intArray(null));
+    assertArrayEquals(new long[] {3,2,4,101}, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -638,10 +737,13 @@ public class TestTagProperties {
     assertFalse(tag.isIntArray(-10));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -700,10 +802,13 @@ public class TestTagProperties {
     assertFalse(tag.isIntArray(-10));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));
@@ -752,10 +857,13 @@ public class TestTagProperties {
     assertFalse(tag.isNamed(""));
     assertFalse(tag.isIntArray(0));
     assertFalse(tag.isIntArray(1));
+    assertFalse(tag.isLongArray(0));
     assertEquals(0, tag.byteArray().length);
     assertEquals(0, tag.intArray().length);
+    assertEquals(0, tag.longArray().length);
     assertEquals(null, tag.byteArray(null));
     assertEquals(null, tag.intArray(null));
+    assertEquals(null, tag.longArray(null));
 
     assertEquals(0, tag.byteValue());
     assertEquals(-1, tag.byteValue(-1));

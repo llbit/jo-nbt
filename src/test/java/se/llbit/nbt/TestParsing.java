@@ -199,6 +199,8 @@ public class TestParsing {
   @Test public void testRoundTrip3() throws IOException {
     Tag root = new NamedTag("", new CompoundTag(Arrays.asList(
         new NamedTag("bork", new IntArrayTag(new int[] { 38, 39, 20 })),
+        new NamedTag("a long array with negative values",
+            new LongArrayTag(new long[] { -1, 38, 39, 20, -1001001 })),
         new NamedTag("burk", new LongTag(12)),
         new NamedTag("borks", new ListTag(Tag.TAG_STRING,
             Arrays.asList(new StringTag("foo"), new StringTag("bar"))))

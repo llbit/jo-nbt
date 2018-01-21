@@ -63,6 +63,8 @@ public abstract class SpecificTag extends Tag {
         return CompoundTag.read(in);
       case Tag.TAG_INT_ARRAY:
         return IntArrayTag.read(in);
+      case Tag.TAG_LONG_ARRAY:
+        return LongArrayTag.read(in);
       default:
         return new ErrorTag("Unknown tag type: " + type);
     }
@@ -110,6 +112,9 @@ public abstract class SpecificTag extends Tag {
           break;
         case Tag.TAG_INT_ARRAY:
           IntArrayTag.skip(in);
+          break;
+        case Tag.TAG_LONG_ARRAY:
+          LongArrayTag.skip(in);
           break;
       }
     } catch (IOException e) {
