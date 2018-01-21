@@ -1,6 +1,8 @@
 1.2.0
 
 * Added support for TAG_Long_Array (Minecraft 1.13).
+    * New class: se.llbit.nbt.LongArrayTag
+    * New API methods: Tag.isLongArray(), Tag.longArray()
 
 1.1.0
 
