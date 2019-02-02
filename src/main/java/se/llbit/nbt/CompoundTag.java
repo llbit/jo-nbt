@@ -47,7 +47,7 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   final List<NamedTag> items;
 
   public void add(String name, SpecificTag tag) {
-    add(new NamedTag(new StringTag(name), tag));
+    add(new NamedTag(name, tag));
   }
 
   public static SpecificTag read(DataInputStream in) {
@@ -117,7 +117,7 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     printTagInfo(buff);
     for (NamedTag item : items) {
       NamedTag tag = (NamedTag) item;
-      buff.append(String.format("%s  %s:\n", indent, tag.getName().stringValue()));
+      buff.append(String.format("%s  %s:\n", indent, tag.getName()));
       tag.tag.printTag(buff, indent + "    ");
     }
   }

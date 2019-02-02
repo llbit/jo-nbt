@@ -41,11 +41,12 @@ import java.util.Set;
  * Named tags are the items of a compound tag.
  */
 public class NamedTag extends Tag {
-  public final SpecificTag name;
+  public final String name;
   public final SpecificTag tag;
 
   public NamedTag(String name, SpecificTag tag) {
-    this(new StringTag(name), tag);
+    this.name = name;
+    this.tag = tag;
   }
 
   public static Tag read(DataInputStream in) {
@@ -56,7 +57,7 @@ public class NamedTag extends Tag {
       } else {
         SpecificTag name = StringTag.read(in);
         SpecificTag payload = SpecificTag.read(type, in);
-        return new NamedTag(name, payload);
+        return new NamedTag(name.stringValue(), payload);
       }
     } catch (IOException e) {
       return new ErrorTag("IOException while reading tag type:\n" + e.getMessage());
@@ -65,7 +66,7 @@ public class NamedTag extends Tag {
 
   @Override public void write(DataOutputStream out) throws IOException {
     getTag().writeType(out);
-    getName().write(out);
+    StringTag.write(out, name);
     getTag().write(out);
   }
 
@@ -138,17 +139,12 @@ public class NamedTag extends Tag {
     return false;
   }
 
-  public NamedTag(SpecificTag p0, SpecificTag p1) {
-    this.name = p0;
-    this.tag = p1;
-  }
-
   /**
-   * Retrieves the Name child.
+   * Gives the name of this named tag.
    *
    * @return The current node used as the Name child.
    */
-  public SpecificTag getName() {
+  public String getName() {
     return name;
   }
 
@@ -174,13 +170,13 @@ public class NamedTag extends Tag {
   }
 
   @Override public boolean isNamed(String name) {
-    return getName().same(name);
+    return this.name.equals(name);
   }
 
   @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
     printTagInfo(buff);
-    name.printTag(buff, indent + "  ");
+    buff.append(indent).append("  ").append("TAG_String: \"").append(name).append("\"\n");
     tag.printTag(buff, indent + "  ");
   }
 

@@ -50,7 +50,11 @@ public class StringTag extends SpecificTag {
   }
 
   @Override public void write(DataOutputStream out) throws IOException {
-    out.writeUTF(getData());
+    write(out, value);
+  }
+
+  static void write(DataOutputStream out, String data) throws IOException {
+    out.writeUTF(data);
   }
 
   static void skip(DataInputStream in) {

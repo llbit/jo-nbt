@@ -1,6 +1,7 @@
 LATEST
 
 * CompoundTag now only contains NamedTag items.
+* NamedTag now stores tag name as String and NamedTag.getName() returns String.
 
 1.2.0
 
