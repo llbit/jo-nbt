@@ -43,8 +43,8 @@ import java.util.Set;
  *
  * <p>The items of a compound tag can be indexed by name.
  */
-public class CompoundTag extends SpecificTag implements Iterable<Tag> {
-  final List<Tag> items;
+public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
+  final List<NamedTag> items;
 
   public void add(String name, SpecificTag tag) {
     add(new NamedTag(new StringTag(name), tag));
@@ -57,7 +57,7 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
       if (last.isEnd()) {
         break;
       }
-      tagThis.add(last);
+      tagThis.add((NamedTag) last);
     }
     return tagThis;
   }
@@ -115,18 +115,14 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
   @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
     printTagInfo(buff);
-    for (Tag item : items) {
-      if (item instanceof NamedTag) {
-        NamedTag tag = (NamedTag) item;
-        buff.append(String.format("%s  %s:\n", indent, tag.getName().stringValue()));
-        tag.tag.printTag(buff, indent + "    ");
-      } else {
-        item.printTag(buff, indent + "  ");
-      }
+    for (NamedTag item : items) {
+      NamedTag tag = (NamedTag) item;
+      buff.append(String.format("%s  %s:\n", indent, tag.getName().stringValue()));
+      tag.tag.printTag(buff, indent + "    ");
     }
   }
 
-  public CompoundTag(List<? extends Tag> items) {
+  public CompoundTag(List<? extends NamedTag> items) {
     this.items = new ArrayList<>(items);
   }
 
@@ -140,7 +136,7 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
   /**
    * Append an item to this compound tag.
    */
-  public void add(Tag node) {
+  public void add(NamedTag node) {
     items.add(node);
   }
 
@@ -178,7 +174,7 @@ public class CompoundTag extends SpecificTag implements Iterable<Tag> {
     throw new Error();
   }
 
-  @Override public Iterator<Tag> iterator() {
+  @Override public Iterator<NamedTag> iterator() {
     return items.iterator();
   }
 

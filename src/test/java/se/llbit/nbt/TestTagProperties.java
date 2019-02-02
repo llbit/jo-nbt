@@ -704,7 +704,7 @@ public class TestTagProperties {
   }
 
   @Test public void testCompoundTag() {
-    List<Tag> items = new ArrayList<>();
+    List<NamedTag> items = new ArrayList<>();
     items.add(new NamedTag("bart", new IntTag(10)));
     CompoundTag tag = new CompoundTag(items);
     tag.add("burt", new StringTag("bort"));

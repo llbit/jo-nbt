@@ -1,3 +1,7 @@
+LATEST
+
+* CompoundTag now only contains NamedTag items.
+
 1.2.0
 
 * Added support for TAG_Long_Array (Minecraft 1.13).
