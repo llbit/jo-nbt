@@ -144,7 +144,7 @@ public class NamedTag extends Tag {
    *
    * @return The current node used as the Name child.
    */
-  public String getName() {
+  public String name() {
     return name;
   }
 

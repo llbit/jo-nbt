@@ -702,6 +702,12 @@ public class TestTagProperties {
     assertEquals(true, tag.boolValue(true));
   }
 
+  @Test public void testNamedTag() {
+    NamedTag tag = new NamedTag("foo", new StringTag("bar"));
+    assertEquals(tag.name(), "foo");
+    assertEquals(tag.getTag().stringValue(""), "bar");
+  }
+
   @Test public void testCompoundTag() {
     List<NamedTag> items = new ArrayList<>();
     items.add(new NamedTag("bart", new IntTag(10)));

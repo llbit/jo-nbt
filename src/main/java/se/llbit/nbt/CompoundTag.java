@@ -115,9 +115,8 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
     printTagInfo(buff);
-    for (NamedTag item : items) {
-      NamedTag tag = (NamedTag) item;
-      buff.append(String.format("%s  %s:\n", indent, tag.getName()));
+    for (NamedTag tag : items) {
+      buff.append(String.format("%s  %s:\n", indent, tag.name()));
       tag.tag.printTag(buff, indent + "    ");
     }
   }
