@@ -31,21 +31,14 @@ package se.llbit.nbt;
 
 import org.junit.Test;
 
-import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 import static org.junit.Assert.assertEquals;
@@ -59,8 +52,7 @@ public class TestParsing {
     assertTrue(root.isNamed(""));
     Tag data = root.unpack();
     assertTrue(data.isCompoundTag());
-    assertEquals("TAG_Compound", data.type());
-    assertEquals("TAG_Compound", data.name());
+    assertEquals("TAG_Compound", data.tagName());
     assertTrue(data.get("Data").isCompoundTag());
   }
 

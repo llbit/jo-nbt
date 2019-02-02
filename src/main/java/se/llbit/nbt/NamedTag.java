@@ -157,11 +157,7 @@ public class NamedTag extends Tag {
     return tag;
   }
 
-  @Override public String type() {
-    return "Tag.Named";
-  }
-
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG:named";
   }
 

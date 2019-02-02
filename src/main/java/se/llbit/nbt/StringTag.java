@@ -77,11 +77,11 @@ public class StringTag extends SpecificTag {
     return ": \"" + getData() + '"';
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_String";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_String";
   }
 

@@ -1,5 +1,7 @@
 LATEST
 
+* Removed redundant method Tag.type() (use Tag.tagName() instead).
+* Renamed Tag.name() to Tag.tagName().
 * CompoundTag now only contains NamedTag items.
 * NamedTag now stores tag name as String and NamedTag.getName() returns String.
 

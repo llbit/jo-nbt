@@ -60,11 +60,11 @@ public class FloatTag extends SpecificTag {
     return ": " + getData();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Float";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Float";
   }
 

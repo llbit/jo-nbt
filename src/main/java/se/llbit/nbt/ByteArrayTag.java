@@ -72,11 +72,11 @@ public class ByteArrayTag extends SpecificTag {
     return ": " + value.length;
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Byte_Array";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Byte_Array";
   }
 

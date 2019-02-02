@@ -153,7 +153,7 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
     return dumpTree();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_List";
   }
 
@@ -165,7 +165,7 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
     }
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_List";
   }
 

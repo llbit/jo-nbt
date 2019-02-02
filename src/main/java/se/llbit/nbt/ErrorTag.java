@@ -53,7 +53,7 @@ public class ErrorTag extends SpecificTag {
     return ": \"" + getError() + '"';
   }
 
-  @Override public String type() {
+  public String type() {
     return "Tag.Error";
   }
 
@@ -61,7 +61,7 @@ public class ErrorTag extends SpecificTag {
     throw new Error("Cannot write an error tag to NBT stream (" + getError() + ")");
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "Tag.Error";
   }
 

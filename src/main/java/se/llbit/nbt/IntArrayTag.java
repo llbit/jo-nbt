@@ -75,11 +75,11 @@ public class IntArrayTag extends SpecificTag {
   @Override public String extraInfo() {
     return ": " + value.length;
   }
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Int_Array";
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Int_Array";
   }
 

@@ -60,11 +60,11 @@ public class ShortTag extends SpecificTag {
     return ": " + getData();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Short";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Short";
   }
 

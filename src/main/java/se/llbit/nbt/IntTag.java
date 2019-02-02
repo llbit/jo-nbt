@@ -64,11 +64,11 @@ public class IntTag extends SpecificTag {
     return ": " + getData();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Int";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Int";
   }
 

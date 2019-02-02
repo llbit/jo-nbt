@@ -144,11 +144,11 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     return dumpTree();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Compound";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Compound";
   }
 

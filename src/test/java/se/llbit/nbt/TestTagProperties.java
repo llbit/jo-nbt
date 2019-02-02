@@ -48,7 +48,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_BYTE, tag.tagType());
     assertEquals("TAG_Byte: 101", tag.toString());
     assertEquals("TAG_Byte", tag.type());
-    assertEquals("TAG_Byte", tag.name());
+    assertEquals("TAG_Byte", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -109,7 +109,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_SHORT, tag.tagType());
     assertEquals("TAG_Short: 101", tag.toString());
     assertEquals("TAG_Short", tag.type());
-    assertEquals("TAG_Short", tag.name());
+    assertEquals("TAG_Short", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -170,7 +170,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_INT, tag.tagType());
     assertEquals("TAG_Int: 101", tag.toString());
     assertEquals("TAG_Int", tag.type());
-    assertEquals("TAG_Int", tag.name());
+    assertEquals("TAG_Int", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -241,7 +241,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_LONG, tag.tagType());
     assertEquals("TAG_Long: 101", tag.toString());
     assertEquals("TAG_Long", tag.type());
-    assertEquals("TAG_Long", tag.name());
+    assertEquals("TAG_Long", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -302,7 +302,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_FLOAT, tag.tagType());
     assertEquals("TAG_Float: 101.0", tag.toString());
     assertEquals("TAG_Float", tag.type());
-    assertEquals("TAG_Float", tag.name());
+    assertEquals("TAG_Float", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -359,7 +359,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_DOUBLE, tag.tagType());
     assertEquals("TAG_Double: 101.0", tag.toString());
     assertEquals("TAG_Double", tag.type());
-    assertEquals("TAG_Double", tag.name());
+    assertEquals("TAG_Double", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -416,7 +416,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_STRING, tag.tagType());
     assertEquals("TAG_String: \"mystring\"", tag.toString());
     assertEquals("TAG_String", tag.type());
-    assertEquals("TAG_String", tag.name());
+    assertEquals("TAG_String", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -471,8 +471,7 @@ public class TestTagProperties {
     assertSame(Tag.END, Tag.END.unpack());
     assertEquals(Tag.TAG_END, Tag.END.tagType());
     assertEquals("TAG_End", Tag.END.toString());
-    assertEquals("TAG_End", Tag.END.type());
-    assertEquals("TAG_End", Tag.END.name());
+    assertEquals("TAG_End", Tag.END.tagName());
     assertEquals("", Tag.END.error());
     assertFalse(Tag.END.isError());
     assertTrue(Tag.END.isEnd());
@@ -528,7 +527,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_BYTE_ARRAY, tag.tagType());
     assertEquals("TAG_Byte_Array: 4", tag.toString());
     assertEquals("TAG_Byte_Array", tag.type());
-    assertEquals("TAG_Byte_Array", tag.name());
+    assertEquals("TAG_Byte_Array", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -591,7 +590,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_INT_ARRAY, tag.tagType());
     assertEquals("TAG_Int_Array: 4", tag.toString());
     assertEquals("TAG_Int_Array", tag.type());
-    assertEquals("TAG_Int_Array", tag.name());
+    assertEquals("TAG_Int_Array", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -649,7 +648,7 @@ public class TestTagProperties {
     assertEquals(Tag.TAG_LONG_ARRAY, tag.tagType());
     assertEquals("TAG_Long_Array: 4", tag.toString());
     assertEquals("TAG_Long_Array", tag.type());
-    assertEquals("TAG_Long_Array", tag.name());
+    assertEquals("TAG_Long_Array", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -720,7 +719,7 @@ public class TestTagProperties {
         + "  burt:\n"
         + "    TAG_String: \"bort\"\n", tag.toString());
     assertEquals("TAG_Compound", tag.type());
-    assertEquals("TAG_Compound", tag.name());
+    assertEquals("TAG_Compound", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -786,7 +785,7 @@ public class TestTagProperties {
         + "  TAG_Int: 10\n"
         + "  TAG_String: \"bort\"\n", tag.toString());
     assertEquals("TAG_List", tag.type());
-    assertEquals("TAG_List", tag.name());
+    assertEquals("TAG_List", tag.tagName());
     assertEquals("", tag.error());
     assertFalse(tag.isError());
     assertFalse(tag.isEnd());
@@ -842,7 +841,7 @@ public class TestTagProperties {
     assertSame(tag, tag.unpack());
     assertEquals("Tag.Error: \"failed horribly\"", tag.toString());
     assertEquals("Tag.Error", tag.type());
-    assertEquals("Tag.Error", tag.name());
+    assertEquals("Tag.Error", tag.tagName());
     assertEquals("failed horribly", tag.error());
     assertTrue(tag.isError());
     assertTrue(tag.isEnd());

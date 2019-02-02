@@ -60,11 +60,11 @@ public class ByteTag extends SpecificTag {
     return ": " + getData();
   }
 
-  @Override public String type() {
+  public String type() {
     return "TAG_Byte";
   }
 
-  @Override public String name() {
+  @Override public String tagName() {
     return "TAG_Byte";
   }
 

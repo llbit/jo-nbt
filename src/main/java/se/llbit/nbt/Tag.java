@@ -67,11 +67,7 @@ public abstract class Tag {
       writeType(out);
     }
 
-    @Override public String type() {
-      return "TAG_End";
-    }
-
-    @Override public String name() {
+    @Override public String tagName() {
       return "TAG_End";
     }
 
@@ -84,9 +80,7 @@ public abstract class Tag {
     }
   };
 
-  public abstract String name();
-
-  public abstract String type();
+  public abstract String tagName();
 
   public boolean isError() {
     return false;
@@ -120,7 +114,7 @@ public abstract class Tag {
    * Print a string representation of this tag to the argument buffer.
    */
   public void printTagInfo(StringBuilder buff) {
-    buff.append(name()).append(extraInfo()).append('\n');
+    buff.append(tagName()).append(extraInfo()).append('\n');
   }
 
   /**
@@ -141,7 +135,7 @@ public abstract class Tag {
   public abstract void write(DataOutputStream out) throws IOException;
 
   public String toString() {
-    return type() + extraInfo();
+    return tagName() + extraInfo();
   }
 
   public boolean isEnd() {
