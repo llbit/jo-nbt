@@ -32,6 +32,13 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
+compileJava.options.encoding = compileTestJava.options.encoding = 'UTF-8'
+
+javadoc {
+  options.encoding = 'UTF-8'
+  options.addStringOption('Xdoclint:none', '-quiet')
+}
+
 task javadocJar(type: Jar) {
   classifier = 'javadoc'
   from javadoc
