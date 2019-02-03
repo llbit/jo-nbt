@@ -32,6 +32,7 @@ package se.llbit.nbt;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class IntArrayTag extends SpecificTag {
   public final int[] value;
@@ -97,5 +98,10 @@ public class IntArrayTag extends SpecificTag {
 
   @Override public boolean isIntArray(int size) {
     return value.length >= size;
+  }
+
+  @Override public boolean equals(Object obj) {
+    return this == obj
+        || (obj instanceof IntArrayTag && Arrays.equals(((IntArrayTag) obj).value, value));
   }
 }

@@ -76,4 +76,8 @@ public class ErrorTag extends SpecificTag {
   @Override public String error() {
     return getError();
   }
+
+  @Override public boolean equals(Object obj) {
+    return false;
+  }
 }

@@ -32,6 +32,7 @@ package se.llbit.nbt;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ByteArrayTag extends SpecificTag {
   public final byte[] value;
@@ -96,4 +97,8 @@ public class ByteArrayTag extends SpecificTag {
     return getData().length >= size;
   }
 
+  @Override public boolean equals(Object obj) {
+    return this == obj
+        || (obj instanceof ByteArrayTag && Arrays.equals(((ByteArrayTag) obj).value, value));
+  }
 }

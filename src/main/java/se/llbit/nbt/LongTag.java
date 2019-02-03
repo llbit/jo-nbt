@@ -88,4 +88,7 @@ public class LongTag extends SpecificTag {
     return getData();
   }
 
+  @Override public boolean equals(Object obj) {
+    return this == obj || (obj instanceof LongTag && ((LongTag) obj).value == value);
+  }
 }

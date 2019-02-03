@@ -195,4 +195,14 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
   public boolean isEmpty() {
     return items.isEmpty();
   }
+
+  @Override public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof ListTag)) {
+      return false;
+    }
+    return items.equals(((ListTag) obj).items);
+  }
 }

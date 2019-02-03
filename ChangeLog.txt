@@ -1,5 +1,6 @@
 LATEST
 
+* Implemented tag equality comparison with Tag.equals(Tag).
 * Removed redundant method Tag.type() (use Tag.tagName() instead).
 * Renamed Tag.name() to Tag.tagName().
 * CompoundTag now only contains NamedTag items.

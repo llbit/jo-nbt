@@ -32,6 +32,7 @@ package se.llbit.nbt;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * TAG_Long_Array is an array of long integers (8 bytes).
@@ -102,5 +103,10 @@ public class LongArrayTag extends SpecificTag {
 
   @Override public boolean isLongArray(int size) {
     return value.length >= size;
+  }
+
+  @Override public boolean equals(Object obj) {
+    return this == obj
+        || (obj instanceof LongArrayTag && Arrays.equals(((LongArrayTag) obj).value, value));
   }
 }

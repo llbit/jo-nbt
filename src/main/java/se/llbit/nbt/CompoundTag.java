@@ -184,4 +184,25 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   public boolean isEmpty() {
     return items.isEmpty();
   }
+
+  @Override public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof CompoundTag)) {
+      return false;
+    }
+    CompoundTag other = (CompoundTag) obj;
+    for (NamedTag tag : items) {
+      if (!other.get(tag.name()).equals(tag.tag)) {
+        return false;
+      }
+    }
+    for (NamedTag tag : other.items) {
+      if (!get(tag.name()).equals(tag.tag)) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

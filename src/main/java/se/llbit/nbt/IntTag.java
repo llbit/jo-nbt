@@ -92,4 +92,7 @@ public class IntTag extends SpecificTag {
     return getData();
   }
 
+  @Override public boolean equals(Object obj) {
+    return this == obj || (obj instanceof IntTag && ((IntTag) obj).value == value);
+  }
 }

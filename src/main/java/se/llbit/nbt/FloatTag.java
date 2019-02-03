@@ -80,4 +80,7 @@ public class FloatTag extends SpecificTag {
     return getData();
   }
 
+  @Override public boolean equals(Object obj) {
+    return this == obj || (obj instanceof FloatTag && ((FloatTag) obj).value == value);
+  }
 }

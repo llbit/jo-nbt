@@ -183,4 +183,15 @@ public class NamedTag extends Tag {
   @Override public CompoundTag asCompound() {
     return tag.asCompound();
   }
+
+  @Override public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+    if (!(obj instanceof NamedTag)) {
+      return false;
+    }
+    NamedTag other = (NamedTag) obj;
+    return name.equals(other.name) && tag.equals(other.tag);
+  }
 }
