@@ -205,4 +205,13 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
     }
     return items.equals(((ListTag) obj).items);
   }
+
+  @Override public int hashCode() {
+    int code = 0;
+    for (SpecificTag tag : items) {
+      code *= 31;
+      code ^= tag.hashCode();
+    }
+    return code;
+  }
 }

@@ -101,4 +101,8 @@ public class ByteArrayTag extends SpecificTag {
     return this == obj
         || (obj instanceof ByteArrayTag && Arrays.equals(((ByteArrayTag) obj).value, value));
   }
+
+  @Override public int hashCode() {
+    return Arrays.hashCode(value);
+  }
 }

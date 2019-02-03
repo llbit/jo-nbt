@@ -194,4 +194,8 @@ public class NamedTag extends Tag {
     NamedTag other = (NamedTag) obj;
     return name.equals(other.name) && tag.equals(other.tag);
   }
+
+  @Override public int hashCode() {
+    return (name.hashCode() * 31) ^ tag.hashCode();
+  }
 }

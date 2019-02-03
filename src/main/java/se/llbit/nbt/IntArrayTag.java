@@ -104,4 +104,8 @@ public class IntArrayTag extends SpecificTag {
     return this == obj
         || (obj instanceof IntArrayTag && Arrays.equals(((IntArrayTag) obj).value, value));
   }
+
+  @Override public int hashCode() {
+    return Arrays.hashCode(value);
+  }
 }

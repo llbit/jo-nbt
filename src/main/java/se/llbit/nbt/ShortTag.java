@@ -91,4 +91,8 @@ public class ShortTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof ShortTag && ((ShortTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    return value;
+  }
 }

@@ -91,4 +91,8 @@ public class ByteTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof ByteTag && ((ByteTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    return value;
+  }
 }

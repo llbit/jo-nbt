@@ -109,4 +109,8 @@ public class LongArrayTag extends SpecificTag {
     return this == obj
         || (obj instanceof LongArrayTag && Arrays.equals(((LongArrayTag) obj).value, value));
   }
+
+  @Override public int hashCode() {
+    return Arrays.hashCode(value);
+  }
 }

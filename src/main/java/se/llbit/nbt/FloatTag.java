@@ -83,4 +83,8 @@ public class FloatTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof FloatTag && ((FloatTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    return Float.floatToRawIntBits(value);
+  }
 }

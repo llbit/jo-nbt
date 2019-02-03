@@ -95,4 +95,8 @@ public class IntTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof IntTag && ((IntTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    return value;
+  }
 }

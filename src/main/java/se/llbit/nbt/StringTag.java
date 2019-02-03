@@ -104,4 +104,8 @@ public class StringTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof StringTag && ((StringTag) obj).value.equals(value));
   }
+
+  @Override public int hashCode() {
+    return value.hashCode();
+  }
 }

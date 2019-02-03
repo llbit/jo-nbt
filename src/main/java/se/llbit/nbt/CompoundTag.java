@@ -205,4 +205,12 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     }
     return true;
   }
+
+  @Override public int hashCode() {
+    int code = 0;
+    for (NamedTag tag : items) {
+      code ^= tag.hashCode();
+    }
+    return code;
+  }
 }

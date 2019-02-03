@@ -91,4 +91,8 @@ public class LongTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof LongTag && ((LongTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    return (int) value;
+  }
 }

@@ -83,4 +83,9 @@ public class DoubleTag extends SpecificTag {
   @Override public boolean equals(Object obj) {
     return this == obj || (obj instanceof DoubleTag && ((DoubleTag) obj).value == value);
   }
+
+  @Override public int hashCode() {
+    long x = Double.doubleToRawLongBits(value);
+    return (int) ((x >> 32) ^ x);
+  }
 }
