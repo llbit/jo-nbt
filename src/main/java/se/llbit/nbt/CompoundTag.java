@@ -34,6 +34,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -44,10 +45,10 @@ import java.util.Set;
  * <p>The items of a compound tag can be indexed by name.
  */
 public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
-  final List<NamedTag> items;
+  final Map<String, NamedTag> items = new LinkedHashMap<>();
 
   public void add(String name, SpecificTag tag) {
-    add(new NamedTag(name, tag));
+    items.put(name, new NamedTag(name, tag));
   }
 
   public static SpecificTag read(DataInputStream in) {
@@ -63,8 +64,8 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   }
 
   @Override public void write(DataOutputStream out) throws IOException {
-    for (Tag item : items) {
-      item.write(out);
+    for (NamedTag tag : items.values()) {
+      tag.write(out);
     }
     out.writeByte(Tag.TAG_END);
   }
@@ -108,21 +109,21 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     }
   }
 
-  public CompoundTag() {
-    items = new ArrayList<>();
-  }
-
   @Override public void printTag(StringBuilder buff, String indent) {
     buff.append(indent);
     printTagInfo(buff);
-    for (NamedTag tag : items) {
+    for (NamedTag tag : items.values()) {
       buff.append(String.format("%s  %s:\n", indent, tag.name()));
       tag.tag.printTag(buff, indent + "    ");
     }
   }
 
+  public CompoundTag() { }
+
   public CompoundTag(List<? extends NamedTag> items) {
-    this.items = new ArrayList<>(items);
+    for (NamedTag tag : items) {
+      this.items.put(tag.name, tag);
+    }
   }
 
   /**
@@ -136,7 +137,7 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
    * Append an item to this compound tag.
    */
   public void add(NamedTag node) {
-    items.add(node);
+    items.put(node.name, node);
   }
 
   public String toString() {
@@ -160,16 +161,14 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   }
 
   @Override public Tag get(String name) {
-    for (Tag item : items) {
-      if (item.isNamed(name)) {
-        return item.unpack();
-      }
+    if (items.containsKey(name)) {
+      return items.get(name).unpack();
     }
     return new ErrorTag("No item named \"" + name + "\" in this compound tag.");
   }
 
   @Override public Iterator<NamedTag> iterator() {
-    return items.iterator();
+    return items.values().iterator();
   }
 
   @Override public CompoundTag asCompound() {
@@ -188,12 +187,12 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
       return false;
     }
     CompoundTag other = (CompoundTag) obj;
-    for (NamedTag tag : items) {
+    for (NamedTag tag : items.values()) {
       if (!other.get(tag.name()).equals(tag.tag)) {
         return false;
       }
     }
-    for (NamedTag tag : other.items) {
+    for (NamedTag tag : other.items.values()) {
       if (!get(tag.name()).equals(tag.tag)) {
         return false;
       }
@@ -202,10 +201,6 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
   }
 
   @Override public int hashCode() {
-    int code = 0;
-    for (NamedTag tag : items) {
-      code ^= tag.hashCode();
-    }
-    return code;
+    return items.hashCode();
   }
 }

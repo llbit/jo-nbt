@@ -171,6 +171,7 @@ public class TestEquality {
 
   @Test public void testCompoundTag2() {
     // Test element permutation.
+    // Two compound tags are compared equal regardless of element permutation.
     CompoundTag t1 = new CompoundTag();
     CompoundTag t2 = new CompoundTag();
     t1.add("Profession", new StringTag("Boss"));

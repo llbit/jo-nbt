@@ -31,11 +31,22 @@ package se.llbit.nbt;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestCompound {
   @Test(expected = Error.class)
   public void testSetError() {
     CompoundTag tag = new CompoundTag();
     tag.add("foo", Tag.END);
     tag.set(0, Tag.END);
+  }
+
+  /** Adding two items with the same name in a compound tag replaces the original item. */
+  @Test public void testDuplicate() {
+    CompoundTag tag = new CompoundTag();
+    tag.add("bar", new StringTag("foo"));
+    tag.add("bar", new IntTag(123));
+    assertEquals(123, tag.get("bar").unpack().intValue());
+    assertEquals(1, tag.size()); // Still only one element in the compound tag.
   }
 }
