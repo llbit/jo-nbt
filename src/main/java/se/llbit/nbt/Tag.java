@@ -279,19 +279,19 @@ public abstract class Tag {
   }
 
   public Tag get(String name) {
-    return new ErrorTag("Can not index-by-name in a non-CompoundTag");
+    return new ErrorTag("Cannot index-by-name in a non-CompoundTag");
   }
 
   public void set(String name, Tag tag) {
-    throw new Error("Can not set item in non-compound tag.");
+    throw new Error("Cannot set item in non-compound tag.");
   }
 
   public void set(int i, SpecificTag tag) {
-    throw new Error("Can not set item in non-list tag.");
+    throw new Error("Cannot set item in non-list tag.");
   }
 
   public Tag get(int i) {
-    return new ErrorTag("Can not index a non-ListTag");
+    return new ErrorTag("Cannot index a non-ListTag");
   }
 
   /**
