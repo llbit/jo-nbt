@@ -168,11 +168,6 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     return new ErrorTag("No item named \"" + name + "\" in this compound tag.");
   }
 
-  @Override public void set(String name, Tag tag) {
-    // TODO
-    throw new Error();
-  }
-
   @Override public Iterator<NamedTag> iterator() {
     return items.iterator();
   }

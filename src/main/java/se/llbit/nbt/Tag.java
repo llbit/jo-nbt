@@ -282,10 +282,6 @@ public abstract class Tag {
     return new ErrorTag("Cannot index-by-name in a non-CompoundTag");
   }
 
-  public void set(String name, Tag tag) {
-    throw new Error("Cannot set item in non-compound tag.");
-  }
-
   public void set(int i, SpecificTag tag) {
     throw new Error("Cannot set item in non-list tag.");
   }

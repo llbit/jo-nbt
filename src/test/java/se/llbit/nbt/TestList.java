@@ -65,10 +65,4 @@ public class TestList {
     assertEquals(10, tag.get(0).intValue());
     tag.get(2); // Out of bounds.
   }
-
-  @Test(expected = Error.class)
-  public void testSetError() {
-    ListTag list = new ListTag(Tag.TAG_END, Collections.<SpecificTag>emptyList());
-    list.set("foo", Tag.END);
-  }
 }
