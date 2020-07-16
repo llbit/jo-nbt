@@ -1,3 +1,10 @@
+1.3.1
+
+* CompoundTag no longer stores elements with the same name (duplicates).
+  If a tag is added with the same name as a previous element, it just
+  replaces the previous one.
+* Removed the unused Tag.set() method.
+
 1.3.0
 
 * Implemented Tag.hashCode().
