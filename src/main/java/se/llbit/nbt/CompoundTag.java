@@ -70,6 +70,13 @@ public class CompoundTag extends SpecificTag implements Iterable<NamedTag> {
     out.writeByte(Tag.TAG_END);
   }
 
+  @Override public void safeWrite(DataOutputStream out) throws IOException {
+    for (NamedTag tag : items.values()) {
+      tag.safeWrite(out);
+    }
+    out.writeByte(Tag.TAG_END);
+  }
+
   static Map<String, Tag> partialParse(DataInputStream in, String prefix,
       Map<String, Tag> result, Set<String> request, Set<String> prefixes) {
     try {

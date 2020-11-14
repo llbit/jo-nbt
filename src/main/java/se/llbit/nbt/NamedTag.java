@@ -70,6 +70,14 @@ public class NamedTag extends Tag {
     getTag().write(out);
   }
 
+  @Override public void safeWrite(DataOutputStream out) throws IOException {
+    if (!(tag instanceof ErrorTag)) {
+      getTag().writeType(out);
+      StringTag.write(out, name);
+      getTag().safeWrite(out);
+    }
+  }
+
   /**
    * Parse only the requested tags.
    *
