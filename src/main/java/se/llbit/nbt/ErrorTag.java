@@ -38,6 +38,10 @@ public class ErrorTag extends SpecificTag {
     throw new RuntimeException("Cannot write an error tag to NBT stream (" + getError() + ")");
   }
 
+  @Override public void safeWrite(DataOutputStream out) {
+    // do nothing (this tag represents an invalid tag)
+  }
+
   public ErrorTag(String message) {
     this.message = message;
   }

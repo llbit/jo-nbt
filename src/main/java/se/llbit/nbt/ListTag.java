@@ -72,6 +72,22 @@ public class ListTag extends SpecificTag implements Iterable<SpecificTag> {
     }
   }
 
+  @Override public void safeWrite(DataOutputStream out) throws IOException {
+    out.writeByte(getType());
+
+    List<SpecificTag> validTags = new ArrayList<>();
+    for (SpecificTag item : items) {
+      if (!(item instanceof ErrorTag)) {
+        validTags.add(item);
+      }
+    }
+
+    out.writeInt(validTags.size());
+    for (SpecificTag item : validTags) {
+      item.safeWrite(out);
+    }
+  }
+
   static Map<String, Tag> partialParse(DataInputStream in, String prefix,
       Map<String, Tag> result, Set<String> request, Set<String> prefixes) {
 
