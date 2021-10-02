@@ -132,7 +132,23 @@ public abstract class Tag {
     return "";
   }
 
+  /**
+   * Write this tag to the given output stream. If this tag or a child tag (e.g. in a
+   * compound tag) is invalid, an error is thrown.
+   * @param out output stream to write the valid tags to
+   * @throws IOException
+   */
   public abstract void write(DataOutputStream out) throws IOException;
+
+  /**
+   * Write this tag to the given output stream, if it is a valid tag. Invalid child tags (e.g. in a
+   * compound tag) are also skipped.
+   * @param out output stream to write the valid tags to
+   * @throws IOException
+   */
+  public void safeWrite(DataOutputStream out) throws IOException {
+    write(out);
+  }
 
   public String toString() {
     return tagName() + extraInfo();
