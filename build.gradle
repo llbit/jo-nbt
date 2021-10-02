@@ -85,12 +85,14 @@ publishing {
     }
   }
 
-  repositories {
-    maven {
-      url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-      credentials {
-        username = ossrhUsername
-        password = ossrhPassword
+  if (project.hasProperty('ossrhUsername')) {
+    repositories {
+      maven {
+        url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+        credentials {
+          username = ossrhUsername
+          password = ossrhPassword
+        }
       }
     }
   }
