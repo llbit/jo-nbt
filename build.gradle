@@ -1,22 +1,23 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'signing'
-apply plugin: 'jacoco'
+plugins {
+  id 'java'
+  id 'maven-publish'
+  id 'signing'
+  id 'jacoco'
+}
 
 version = '1.3.0'
 group = 'se.llbit'
 archivesBaseName = 'jo-nbt'
 
 // Source level is JDK 7 because we use AutoCloseable.
-sourceCompatibility = '1.7'
-targetCompatibility = '1.7'
+sourceCompatibility = targetCompatibility = '1.7'
 
 repositories {
   mavenCentral()
 }
 
 dependencies {
-  testCompile 'junit:junit:4.11'
+  testImplementation 'junit:junit:4.11'
 }
 
 jar.manifest.attributes 'Main-Class': 'se.llbit.nbt.DumpNBT'
@@ -25,8 +26,8 @@ test.inputs.dir file('testfiles')
 
 jacocoTestReport {
   reports {
-    xml.enabled = true
-    html.enabled = true
+    xml.required = true
+    html.required = true
   }
 }
 
@@ -39,63 +40,58 @@ javadoc {
   options.addStringOption('Xdoclint:none', '-quiet')
 }
 
-task javadocJar(type: Jar) {
-  classifier = 'javadoc'
-  from javadoc
+java {
+  withJavadocJar()
+  withSourcesJar()
 }
 
-task sourcesJar(type: Jar) {
-  classifier = 'sources'
-  from sourceSets.main.allSource
-}
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      artifactId = 'jo-nbt'
+      from components.java
 
-artifacts {
-  archives javadocJar, sourcesJar
-}
-
-signing {
-  required { project.hasProperty('signing.keyId') }
-  sign configurations.archives
-}
-
-// Configure artifact upload only if OSSRH credentials exist:
-if (project.hasProperty('ossrhUsername')) {
-  uploadArchives {
-    repositories.mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-      repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2') {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
+      versionMapping {
+        usage('java-api') {
+          fromResolutionOf('runtimeClasspath')
+        }
+        usage('java-runtime') {
+          fromResolutionResult()
+        }
       }
 
-      snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      pom.project {
-        name 'jo-nbt'
-        packaging 'jar'
-        description 'Java NBT library.'
-        url 'https://github.com/llbit/jo-nbt'
+      pom {
+        name = 'jo-nbt'
+        description = 'Java NBT library.'
+        url = 'https://github.com/llbit/jo-nbt'
         licenses {
           license {
-            name 'Modified BSD License'
-            url 'http://opensource.org/licenses/BSD-3-Clause'
-            distribution 'repo'
+            name = 'Modified BSD License'
+            url = 'http://opensource.org/licenses/BSD-3-Clause'
+            distribution = 'repo'
           }
         }
         developers {
           developer {
-            name 'Jesper Öqvist'
-            email 'jesper@llbit.se'
+            name = 'Jesper Öqvist'
+            email = 'jesper@llbit.se'
           }
         }
         scm {
-          connection 'scm:git:https://github.com/llbit/jo-nbt.git'
-          url 'https://github.com/llbit/jo-nbt'
+          connection = 'scm:git:https://github.com/llbit/jo-nbt.git'
+          url = 'https://github.com/llbit/jo-nbt'
         }
       }
     }
   }
-}
 
+  repositories {
+    maven {
+      url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+      credentials {
+        username = ossrhUsername
+        password = ossrhPassword
+      }
+    }
+  }
+}
